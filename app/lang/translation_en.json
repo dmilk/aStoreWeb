@@ -1,0 +1,19 @@
+{
+    "HELLO": "Hi, choose route:",
+    "krym_kavkaz": "Krym -> Kavakz",
+    "kavkaz_krym": "Kavakz -> Krym",
+    "HELLO_CATEGORY": "choose category:",
+    "man": "man",
+    "vehicle": "vehicle",
+    "HELLO_TICKET": "choose ticket:",
+    "adult": "adult",
+    "child": "child",
+    "invalid": "invalid",
+    "car": "car",
+    "mini_car": "Mini Car < 3m",
+    "truck": "Truck",
+    "ADD_TO_CART": "Add to cart",
+    "EMPTY": "Cart is empty",
+    "FULL": " items in cart",
+    "RUB": "RUB"
+}

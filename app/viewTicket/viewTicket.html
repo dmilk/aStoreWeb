@@ -1,0 +1,19 @@
+{{translation.HELLO_TICKET}}
+<table class="table table-striped">
+    <tr ng-repeat="ticket in allTickets">
+        <td>
+            <img ng-src="img/ticket/{{ticket.name}}.png"/>
+        </td>
+        <td>
+            {{translation[ticket.name]}} 
+        </td>
+        <td>
+            {{ticket.price| currency}}
+        </td>
+        <td>
+            <button class="btn btn-primary" ng-click="addToCart(ticket)">
+                {{translation.ADD_TO_CART}}
+            </button>
+        </td>
+    </tr>
+</table>

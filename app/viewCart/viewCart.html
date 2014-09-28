@@ -1,0 +1,34 @@
+Cart: {{Cart}}
+
+<!-- checkout button -->
+<div class="row-fluid">
+    <div class="span3 offset1">
+        <a href="#/viewCheckout" class="btn btn-large btn-success">Proceed to Checkout</a>
+    </div>
+    <div class="span4">
+        <p class="lead">Your subtotal is {{total | currency:translation.RUB}}</p>
+    </div>
+    <div class="span3">
+        <button class="btn btn-large btn-danger" type="button" ng-click="removeAll()">Clear the Cart</button>    
+    </div>
+</div>
+
+<!-- shopping cart content -->
+<div class="row-fluid">
+    <div class="span10 offset1">
+        <h1>The content of your cart is:</h1>
+        <table class="table table-striped">
+            <tr ng-repeat="ticket in cartContent">
+                <td><img src="" ng-src="img/ticket/{{ticket.name}}.png"/></td>
+                <td>{{ticket.name}}</td>
+                <td>{{ticket.price}}</td>
+                <td><button class="btn btn-warning" ng-click="remove(ticket)">Remove</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+
