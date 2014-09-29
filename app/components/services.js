@@ -27,9 +27,10 @@ aStoreService.service('translationService', function ($resource) {
     };
 });
 
-//aStoreService.factory('Cart', function () {
-//    return { routeText: 'Empty_route' };
-//});
+aStoreService.factory('Purchase', function($resource){
+  return $resource('http://localhost\::port/aStore/rest/purchase/', 
+            {port:8080}, {});
+});
 
 aStoreService.factory('Cart', function(){
     var shoppingCart = function () {

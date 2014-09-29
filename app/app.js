@@ -6,6 +6,7 @@ var aStore = angular.module('aStore', [
   'aStore.viewCategory',
   'aStore.viewTicket',
   'aStore.viewCart',
+  'aStore.viewCheckout',
   'aStore.services',
   'aStore.langController',
   'aStore.cartStatusController'
