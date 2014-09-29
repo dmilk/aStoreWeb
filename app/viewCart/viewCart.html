@@ -6,7 +6,7 @@ Cart: {{Cart}}
         <a href="#/viewCheckout" class="btn btn-large btn-success">Proceed to Checkout</a>
     </div>
     <div class="span4">
-        <p class="lead">Your subtotal is {{total | currency:translation.RUB}}</p>
+        <p class="lead">Your subtotal is {{total| currency:translation.RUB}}</p>
     </div>
     <div class="span3">
         <button class="btn btn-large btn-danger" type="button" ng-click="removeAll()">Clear the Cart</button>    
@@ -19,9 +19,21 @@ Cart: {{Cart}}
         <h1>The content of your cart is:</h1>
         <table class="table table-striped">
             <tr ng-repeat="ticket in cartContent">
-                <td><img src="" ng-src="img/ticket/{{ticket.name}}.png"/></td>
+                <td>
+                    <img src="" ng-src="img/ticket/{{ticket.name}}.png"/>
+                    <div class="control-group" ng-class="{error:(form.inputFirstName.$dirty || showError) && form.inputFirstName.$invalid}">
+                        <label class="control-label" for="inputFirstName">First name:</label>
+                        <div class="controls">
+                            <input type="text" id="inputFirstName" name="inputFirstName" placeholder="First name" ng-model="purchase.firstName" required>
+                            <div ng-show="(form.inputFirstName.$dirty || showError) && form.inputFirstName.$invalid">
+                                <span class="help-inline">First name is required</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
                 <td>{{ticket.name}}</td>
                 <td>{{ticket.price}}</td>
+                <td>{{ticket.xx}}</td>
                 <td><button class="btn btn-warning" ng-click="remove(ticket)">Remove</button></td>
             </tr>
         </table>

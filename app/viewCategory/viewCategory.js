@@ -9,14 +9,7 @@ angular.module('aStore.viewCategory', ['ngRoute'])
                 });
             }])
 
-//        .controller('ViewCategoryCtrl', function ($scope, Category, Cart) {
         .controller('ViewCategoryCtrl', function ($scope, Category) {
             $scope.allCategories = Category.findAll();
-//            $scope.Cart = Cart;
 
-            $scope.clickCategory = function (txt) {
-                console.log("click category ");
-//                console.log(txt);
-//                $scope.Cart.categoryText = txt;
-            }
         });

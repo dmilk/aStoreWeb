@@ -33,12 +33,13 @@ aStoreService.factory('Purchase', function($resource){
 });
 
 aStoreService.factory('Cart', function(){
-    var shoppingCart = function () {
+    var shoppingCart = function() {
         this.routeId = 0;
         this.items = [];
         this.listeners = [];
         this.add = function(ticket) {
-            this.items.push(ticket);
+            ticket.number = this.size();
+            this.items.push(angular.copy(ticket));
             this.fireChanges();
         }
         this.fireChanges = function() {
@@ -66,7 +67,7 @@ aStoreService.factory('Cart', function(){
             return this.items;
         }
         this.addListener = function(listener) {
-            this.listeners.push( listener);
+            this.listeners.push(listener);
         }
         this.getTotal = function() {
             var total = 0;

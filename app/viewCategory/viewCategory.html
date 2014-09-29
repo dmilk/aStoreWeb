@@ -1,6 +1,6 @@
 {{translation.HELLO_CATEGORY}}
 <ul ng-repeat="category in allCategories">
-    <li ng-click="clickCategory(category.name)">
+    <li>
         <a ng-href="#/viewTicket/{{category.id}}">
             <img ng-src="img/category/{{category.name}}.png"/>
             {{translation[category.name]}}
