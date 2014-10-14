@@ -1,10 +1,15 @@
-var aStoreService = angular.module('aStore.services', ['ngResource']);
+ var aStoreService = angular.module('aStore.services', ['ngResource']);
+ 
+ aStoreService.factory('UserService', function() {
+     return {
+        referer : 'undef'
+    };
+ });
 
 aStoreService.factory('Route', function ($resource) {
     return $resource('http://localhost\::port/aStore/rest/route',
             {port: 8080}, {findAll: {method: 'GET', isArray: true}});
 });
-
 
 aStoreService.factory('Category', function ($resource) {
     return $resource('http://localhost\::port/aStore/rest/category',
@@ -15,6 +20,7 @@ aStoreService.factory('Ticket', function($resource){
   return $resource('http://localhost\::port/aStore/rest/ticket/:categoryId', 
             {categoryId:'@categoryId', port:8080}, {findByCategory: {method: 'GET', isArray: true}});
 });
+
 
 aStoreService.service('translationService', function ($resource) {
 

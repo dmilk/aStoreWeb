@@ -2,6 +2,7 @@
 
 var aStore = angular.module('aStore', [
   'ngRoute',
+  'aStore.viewLogin',
   'aStore.viewRoute',
   'aStore.viewCategory',
   'aStore.viewTicket',
