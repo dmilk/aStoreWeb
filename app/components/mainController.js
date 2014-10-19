@@ -1,13 +1,20 @@
-angular.module('aStore.langController', ['ngResource', 'tmh.dynamicLocale']).
-        controller('langController',
+angular.module('aStore.mainController', ['ngResource', 'tmh.dynamicLocale']).
+        controller('mainController',
 //function testController($scope, translationService){  
-                function ($scope, $location, UserService, translationService, tmhDynamicLocale) {
-                    
-                    $scope.gotoLogin = function() {
-                        $scope.xxx = $location.path();
+                function ($scope, $location, UserService, UserInfo, translationService, tmhDynamicLocale) {
+
+                    $scope.gotoLogin = function () {
                         UserService.referer = $location.path();
                     }
-                    
+
+                    $scope.userInfo = UserInfo.getUserInfo();
+
+                    $scope.$on('authChanged', function (event, args) {
+                        console.log("authChanged authChanged authChanged authChanged authChanged authChanged");
+                        $scope.userInfo = UserInfo.getUserInfo();
+                    });
+
+
                     //Выполняем перевод, если произошло событие смены языка
                     $scope.translate = function () {
                         translationService.getTranslation($scope, $scope.selectedLanguage);
@@ -18,4 +25,4 @@ angular.module('aStore.langController', ['ngResource', 'tmh.dynamicLocale']).
                     $scope.translate();
                 }
 
-);
+        );

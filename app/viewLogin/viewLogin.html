@@ -1,10 +1,14 @@
-r = {{r}}
-<form action="j_security_check" method=post>
+<!--<form ng- action="j_security_check" method=post>-->
+user = {{ user }}
+<br>
+zzz = {{ zzz }}
+<p>
+    <input type="email" id="email" name="inputEmail" placeholder="E-Mail" ng-model="user.login" required>
+</p>
+<p>
+    <input type="password" id="password" name="inputPassword" placeholder="Password" ng-model="user.password" required>
+</p>
 
-    <p>username: <input type="text" name="j_username"></p>
-
-    <p>password: <input type="password" name="j_password"></p>
-
-    <p><input type="submit" value="submit"></p>
-</form>
+<p><button ng-click="login(user)">Submit</button></p>
 <button ng-click="gotoBack()">gotoBack</button>
+<button ng-click="zzzClick()">zzzClick</button>

@@ -54,3 +54,8 @@ body {
     padding-left: 12px;
     padding-right: 12px;
 }
+
+#header .welcome {
+    padding-top: 12px;
+    padding-right: 50px;
+}

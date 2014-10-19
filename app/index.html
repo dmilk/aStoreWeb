@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/app.css"/>
         <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body ng-controller="langController">
+    <body ng-controller="mainController">
         <div id="header">
             <div class="navbar navbar-default navbar-fixed-top">
                 <div class="navbar-inner">
@@ -30,7 +30,7 @@
                         </li>
                         <li class="active">
                             <a href="#">Buy</a></li>
-                        <li><a href="#/login" ng-click="gotoLogin()">About</a></li>
+                        <li><a href="#/login" ng-click="gotoLogin()">Login</a></li>
                         <li ng-controller="cartStatusController">
                             <a href="#/viewCart"><img src="img/cart.gif"/>
                                 <span ng-if="size > 0">{{size}}</span> {{translation[content]}}
@@ -38,6 +38,9 @@
                         </li>
                     </ul>
                     <ul class="nav pull-right">
+                        <li class="welcome">
+                            Hi, {{ userInfo.firstName}} {{ userInfo.lastName}}
+                        </li>
                         <li class="language">Language:
                             <select class="form-control" ng-change="translate()" ng-model="selectedLanguage">
                                 <option value="en">eng</option>
@@ -78,7 +81,7 @@
         <script src="viewCheckout/viewCheckout.js" type="text/javascript"></script>
         <script src="viewLogin/viewLogin.js" type="text/javascript"></script>
         <script src="components/services.js" type="text/javascript"></script>
-        <script src="components/langController.js" type="text/javascript"></script>
+        <script src="components/mainController.js" type="text/javascript"></script>
         <script src="components/cartStatusController.js" type="text/javascript"></script>
         <script src="components/tmhDynamicLocale.min.js" type="text/javascript"></script>
         <script src="bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min.js" type="text/javascript"></script>
