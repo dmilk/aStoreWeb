@@ -14,17 +14,17 @@ aStoreService.factory('authHttpRequestInterceptor', function ($rootScope, $injec
     return authHttpRequestInterceptor;
 });
 
-aStoreService.factory('authFactory', function ($rootScope, $http) {
+aStoreService.factory('authFactory', function ($rootScope, $http, $window) {
 
     var authFactory = {
         authData: undefined
     };
 
-    authFactory.setAuthData = function (authData) {
+    authFactory.setAuthData = function (aData) {
         this.authData = {
-            authId: authData.authId,
-            authToken: authData.authToken,
-            authPermission: authData.authPermissionSet
+            authId: aData.authId,
+            authToken: aData.authToken,
+            authPermission: aData.authPermissionSet
         };
         $rootScope.$broadcast('authChanged');
     };
@@ -40,6 +40,16 @@ aStoreService.factory('authFactory', function ($rootScope, $http) {
     authFactory.login = function (user) {
         return $http.post('http://localhost:8080/aStore/rest/user/login', user);
     };
+    
+    function init()  {
+        if ($window.sessionStorage["authData"]) {
+            authFactory.setAuthData(JSON.parse($window.sessionStorage["authData"]));
+//            $rootScope.$broadcast('authChanged');
+        }
+    };
+
+    init();
+
     return authFactory;
 
 });
