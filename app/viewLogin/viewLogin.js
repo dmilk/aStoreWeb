@@ -15,8 +15,10 @@ angular.module('aStore.viewLogin', ['ngRoute'])
                 authFactory.login(user).success(function (data) {
                     authFactory.setAuthData(data);
                     $window.sessionStorage["authData"] = JSON.stringify(authFactory.authData);
-                }).error(function () {
-                    console.log('ERROR ERROR ERROR')
+                }).error(function (data, status) {
+                    console.log('ERROR ERROR ERROR');
+                    console.log('data: ' + data);
+                    console.log('status: ' + status);
                 });
             };
 

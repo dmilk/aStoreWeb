@@ -5,6 +5,13 @@ angular.module('aStore.mainController', ['ngResource', 'tmh.dynamicLocale']).
                     $scope.gotoLogin = function () {
                         UserService.referer = $location.path();
                     }
+                    
+                    $scope.hmacClick = function () {
+                        var hash = CryptoJS.HmacSHA256("Message", "Secret Passphrase1");
+                        console.log(hash);
+                        console.log(hash.toString().length);
+                    }
+
 
                     $scope.userInfo = UserInfo.getUserInfo();
 
