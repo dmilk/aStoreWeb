@@ -4,7 +4,6 @@ angular
         .module('aStore')
         .factory('UserService', function () {
             return {
-                referer: "undef"
-                
+                referer: undefined
             };
         });

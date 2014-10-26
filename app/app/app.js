@@ -9,7 +9,8 @@ var aStore = angular.module('aStore', [
     'aStore.ticket',
     'aStore.cart',
     'aStore.checkout',
-    'aStore.services',
+//    'aStore.services',
+    'aStore.interceptor',
     'aStore.mainCtrl',
     'aStore.cartStatus',
     'aStore.directives'
