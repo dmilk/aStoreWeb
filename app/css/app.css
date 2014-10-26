@@ -1,6 +1,6 @@
 /* app css stylesheet */
 
-/*.menu {
+.menu {
     list-style: none;
     border-bottom: 0.1em solid black;
     margin-bottom: 2em;
@@ -27,7 +27,7 @@
 .menu > li:nth-child(1):before {
     content: "";
     padding: 0;
-}*/
+}
 
 body {
     padding-top: 60px;
@@ -58,4 +58,11 @@ body {
 #header .welcome {
     padding-top: 12px;
     padding-right: 50px;
+}
+
+button.disabled {
+    color: #000000;
+    cursor: default;
+    text-decoration: none;
+    padding-left: 100px;
 }

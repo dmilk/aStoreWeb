@@ -16,8 +16,7 @@
         <link rel="stylesheet" href="css/app.css"/>
         <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body ng-controller="mainController">
-        {{ userInfo}}
+    <body ng-controller="mainCtrl">
         <div id="header">
             <div class="navbar navbar-default navbar-fixed-top">
                 <div class="navbar-inner">
@@ -31,17 +30,29 @@
                         </li>
                         <li class="active">
                             <a href="#">Buy</a></li>
-                        <li><a href="#/login" ng-click="gotoLogin()">Login</a></li>
-                        <li ng-controller="cartStatusController">
-                            <a href="#/viewCart"><img src="img/cart.gif"/>
+                        <li><a href="#">About</a></li>
+                        <li ng-controller="cartStatusCtrl">
+                            <a href="#/app/cart"><img src="img/cart.gif"/>
                                 <span ng-if="size > 0">{{size}}</span> {{translation[content]}}
                             </a>
                         </li>
                     </ul>
                     <ul class="nav pull-right">
-                        <li class="welcome">
-                            Hi, {{ userInfo.firstName}} {{ userInfo.lastName}}
-                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Hi, {{(userInfo.firstName || "anonymous")}} 
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li ng-if="!isAuthenticated">
+                                    <a href="#/app/login" ng-click="gotoLogin()">Login</a>
+                                </li>
+                                <li ng-if="!isAuthenticated">
+                                    <a href="#/app/signup">Sign up</a></li>
+                                <li ng-if="isAuthenticated" >
+                                    <a href="#" ng-click="logout()">Logout</a>
+                                </li>
+                            </ul>
+                        </li>                        
                         <li class="language">Language:
                             <select class="form-control" ng-change="translate()" ng-model="selectedLanguage">
                                 <option value="en">eng</option>
@@ -53,8 +64,8 @@
                 <!--</div>-->
             </div>
         </div>
-
-
+        
+        {{ userInfo}}
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -68,26 +79,40 @@
             <span>&copy;<a href="mailto:notreal@mail.ru">Notreal</a></span>
         </div>
 
-        <script>
-        </script>
-        <button ng-click="hmacClick()">HMAC</button>
-
         <!-- In production use:
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
         -->
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/angular-resource/angular-resource.js" type="text/javascript"></script>
-        <script src="app.js"></script>
-        <script src="viewRoute/viewRoute.js"></script>
-        <script src="viewCategory/viewCategory.js"></script>
-        <script src="viewTicket/viewTicket.js" type="text/javascript"></script>
-        <script src="viewCart/viewCart.js" type="text/javascript"></script>
-        <script src="viewCheckout/viewCheckout.js" type="text/javascript"></script>
-        <script src="viewLogin/viewLogin.js" type="text/javascript"></script>
+        
+        <script src="app/app.js"></script>
+        <script src="common/constants.js" type="text/javascript"></script>
+        <script src="common/directives.js" type="text/javascript"></script>
+
+        <script src="app/route/routeCtrl.js"></script>
+        <script src="app/route/routeService.js" type="text/javascript"></script>
+        <script src="app/category/categoryCtrl.js" type="text/javascript"></script>
+        <script src="app/category/categoryService.js" type="text/javascript"></script>
+        <script src="app/ticket/ticketCtrl.js" type="text/javascript"></script>
+        <script src="app/ticket/ticketService.js" type="text/javascript"></script>
+        <script src="app/cart/cartCtrl.js" type="text/javascript"></script>
+        <script src="app/cart/cartService.js" type="text/javascript"></script>
+        <script src="app/checkout/checkoutCtrl.js" type="text/javascript"></script>
+        <script src="app/checkout/checkoutService.js" type="text/javascript"></script>
+        <script src="app/checkout/purchaseService.js" type="text/javascript"></script>
+        <script src="app/login/loginCtrl.js" type="text/javascript"></script>
+        <script src="app/login/loginService.js" type="text/javascript"></script>
+        <script src="app/login/saltService.js" type="text/javascript"></script>
+        <script src="app/signup/signupCtrl.js" type="text/javascript"></script>
+        <script src="app/signup/signupService.js" type="text/javascript"></script>
+        <script src="app/signup/passwordService.js" type="text/javascript"></script>
+        
+        <script src="app/cart/cartStatusCtrl.js" type="text/javascript"></script>
+        <script src="common/userService.js" type="text/javascript"></script>
+        <script src="common/mainCtrl.js" type="text/javascript"></script>
         <script src="components/services.js" type="text/javascript"></script>
-        <script src="components/mainController.js" type="text/javascript"></script>
-        <script src="components/cartStatusController.js" type="text/javascript"></script>
+
         <script src="components/tmhDynamicLocale.min.js" type="text/javascript"></script>
         <script src="bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min.js" type="text/javascript"></script>
         <script src="components/bootstrap.min.js" type="text/javascript"></script>

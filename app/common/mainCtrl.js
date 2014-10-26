@@ -1,9 +1,15 @@
-angular.module('aStore.mainController', ['ngResource', 'tmh.dynamicLocale']).
-        controller('mainController',
-                function ($scope, $location, UserService, UserInfo, translationService, tmhDynamicLocale) {
+'use strict';
+
+angular.module('aStore.mainCtrl', ['ngResource', 'tmh.dynamicLocale']).
+        controller('mainCtrl',
+                function ($scope, $location, UserService, UserInfo, authFactory, translationService, tmhDynamicLocale) {
 
                     $scope.gotoLogin = function () {
                         UserService.referer = $location.path();
+                    }
+                    
+                    $scope.logout = function() {
+                        authFactory.logout();
                     }
                     
                     $scope.hmacClick = function () {
@@ -11,12 +17,16 @@ angular.module('aStore.mainController', ['ngResource', 'tmh.dynamicLocale']).
                         console.log(hash);
                         console.log(hash.toString().length);
                     }
+                    
 
 
                     $scope.userInfo = UserInfo.getUserInfo();
+                    $scope.isAuthenticated = authFactory.isAuthenticated();
+
 
                     $scope.$on('authChanged', function (event, args) {
                         $scope.userInfo = UserInfo.getUserInfo();
+                        $scope.isAuthenticated = authFactory.isAuthenticated();
                     });
 
 

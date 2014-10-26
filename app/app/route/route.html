@@ -1,0 +1,8 @@
+<ul ng-repeat="currentRoute in route.allRoutes">
+    <li ng-click="route.clickRoute(currentRoute)">
+        <a href="#/app/category">
+            <img ng-src="img/route/{{currentRoute.name}}.png"/>
+            {{translation[currentRoute.name]}}
+        </a> 
+    </li>
+</ul>

@@ -1,16 +1,16 @@
-{{Cart}}
+{{checkout.Cart}}
 
 <div class="row-fluid">
 
     <div class="span7 offset1" ng-hide="orderId">
         <h1>Checkout</h1>
-        {{ purchase}}
+        {{ checkout.purchase}}
         <p>Customer information:</p>
         <form name="form" class="form-horizontal" novalidate>
             <div class="control-group" ng-class="{error:(form.inputFirstName.$dirty || showError) && form.inputFirstName.$invalid}">
                 <label class="control-label" for="inputFirstName">First name:</label>
                 <div class="controls">
-                    <input type="text" id="inputFirstName" name="inputFirstName" placeholder="First name" ng-model="purchase.firstName" required>
+                    <input type="text" id="inputFirstName" name="inputFirstName" placeholder="First name" ng-model="checkout.purchase.firstName" required>
                     <div ng-show="(form.inputFirstName.$dirty || showError) && form.inputFirstName.$invalid">
                         <span class="help-inline">First name is required</span>
                     </div>
@@ -19,7 +19,7 @@
             <div class="control-group" ng-class="{error:(form.inputSecondName.$dirty || showError) && form.inputSecondName.$invalid}">
                 <label class="control-label" for="inputSecondName">Second name:</label>
                 <div class="controls">
-                    <input type="text" id="inputSecondName" name="inputSecondName" placeholder="Second name" ng-model="purchase.secondName" required>
+                    <input type="text" id="inputSecondName" name="inputSecondName" placeholder="Second name" ng-model="checkout.purchase.secondName" required>
                     <div ng-show="(form.inputSecondName.$dirty || showError) && form.inputSecondName.$invalid">
                         <span class="help-inline">Second name is required</span>
                     </div>
@@ -29,7 +29,7 @@
             <div class="control-group" ng-class="{error:(form.inputEmail.$dirty || showError) && form.inputEmail.$invalid}">
                 <label class="control-label" for="inputEmail">Email:</label>
                 <div class="controls">
-                    <input type="email" id="inputEmail" name="inputEmail" placeholder="Email" ng-model="purchase.email" required>
+                    <input type="email" id="inputEmail" name="inputEmail" placeholder="Email" ng-model="checkout.purchase.email" required>
                     <div ng-show="(form.inputEmail.$dirty || showError) && form.inputEmail.$invalid">
                         <span class="help-inline">Valid email is required</span>
                     </div>
@@ -38,14 +38,14 @@
             <div class="control-group" ng-class="{error:(form.inputPhone.$dirty || showError) && form.inputPhone.$invalid}">
                 <label class="control-label" for="inputPhone">Phone:</label>
                 <div class="controls">
-                    <input type="text" id="inputPhone" name="inputPhone" placeholder="Phone" ng-model="purchase.phone" required>
+                    <input type="text" id="inputPhone" name="inputPhone" placeholder="Phone" ng-model="checkout.purchase.phone" required>
                     <div ng-show="(form.inputPhone.$dirty || showError) && form.inputPhone.$invalid">
                         <span class="help-inline">Name is required</span>
                     </div>
                 </div>
             </div>
-            <button class="btn btn-large btn-primary" type="button" ng-click="submitPurchase(form.$invalid)">Submit Purchase</button>
-            <button class="btn btn-large" type="button" ng-click="cancelPurchase()">Cancel</button>            
+            <button class="btn btn-large btn-primary" type="button" ng-click="checkout.submitPurchase(form.$invalid)">Submit Purchase</button>
+            <button class="btn btn-large" type="button" ng-click="checkout.cancelPurchase()">Cancel</button>            
         </form>
     </div>
 
@@ -53,7 +53,7 @@
     <div class="span7 offset1" ng-show="orderId">
         <h1>Your  order has been processed.</h1>
         <p>The order confirmation number is {{orderId}}</p>
-        <button class="btn btn-large btn-primary" type="button" ng-click="startShoppingAgain()">Continue shopping</button>            
+        <button class="btn btn-large btn-primary" type="button" ng-click="checkout.startShoppingAgain()">Continue shopping</button>            
     </div>
 
     <!-- order summary box: -->
@@ -61,15 +61,15 @@
         <table class="table">
             <tr>
                 <td>Subtotal:</td>
-                <td>{{subtotal}}</td>
+                <td>{{checkout.subtotal}}</td>
             </tr>
             <tr>
                 <td>Delivery:</td>
-                <td>{{surcharge}}</td>
+                <td>{{checkout.surcharge}}</td>
             </tr>
             <tr>
                 <td>Total:</td>
-                <td><b>{{total}}</b></td>
+                <td><b>{{checkout.total}}</b></td>
             </tr>
         </table>
     </div>

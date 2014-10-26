@@ -1,0 +1,8 @@
+<ul ng-repeat="currentCategory in category.allCategories">
+    <li>
+        <a ng-href="#/app/ticket/{{currentCategory.id}}">
+            <img ng-src="img/category/{{currentCategory.name}}.png"/>
+            {{translation[currentCategory.name]}}
+        </a> 
+    </li>
+</ul>

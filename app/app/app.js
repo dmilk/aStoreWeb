@@ -2,18 +2,20 @@
 
 var aStore = angular.module('aStore', [
     'ngRoute',
-    'aStore.viewLogin',
-    'aStore.viewRoute',
-    'aStore.viewCategory',
-    'aStore.viewTicket',
-    'aStore.viewCart',
-    'aStore.viewCheckout',
+    'aStore.login',
+    'aStore.signup',
+    'aStore.route',
+    'aStore.category',
+    'aStore.ticket',
+    'aStore.cart',
+    'aStore.checkout',
     'aStore.services',
-    'aStore.mainController',
-    'aStore.cartStatusController'
+    'aStore.mainCtrl',
+    'aStore.cartStatus',
+    'aStore.directives'
 ]).
         config(['$routeProvider', function ($routeProvider) {
-                $routeProvider.otherwise({redirectTo: '/viewRoute'});
+                $routeProvider.otherwise({redirectTo: '/app/route'});
             }]).
         config(function ($httpProvider) {
             $httpProvider.interceptors.push('authHttpRequestInterceptor');
