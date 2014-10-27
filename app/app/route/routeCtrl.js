@@ -13,9 +13,14 @@ function config($routeProvider) {
             });
 };
 
-function routeCtrl(RouteService, CartService) {
+function routeCtrl(RouteService, CartService, TestService) {
     var vm = this;
     vm.allRoutes = RouteService.query();
+    
+    vm.testClick = function() {
+//        console.log("testClick");
+        vm.test = TestService.getSalt();
+    };
 
     vm.clickRoute = function (route) {
         CartService.routeId = route.id;
