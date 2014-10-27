@@ -2,7 +2,7 @@
 
 angular
         .module('aStore')
-        .factory('UserService', function () {
+        .factory('LocationService', function () {
             return {
                 referer: undefined
             };

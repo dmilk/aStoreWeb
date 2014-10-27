@@ -39,24 +39,27 @@
                     </ul>
                     <ul class="nav pull-right">
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown">Hi, {{(userInfo.firstName || "anonymous")}} 
+                            <a class="dropdown-toggle" data-toggle="dropdown">Hi, {{(userInfo.firstName|| "anonymous")}} 
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li ng-if="!isAuthenticated">
-                                    <a href="#/app/login" ng-click="gotoLogin()">Login</a>
+                                    <a href="#/app/login" ng-click="gotoLogin()">{{translation.login}}</a>
                                 </li>
                                 <li ng-if="!isAuthenticated">
-                                    <a href="#/app/signup">Sign up</a></li>
+                                    <a href="#/app/signup">{{translation.signup}}</a></li>
+                                <li ng-if="isAuthenticated">
+                                    <a href="#/order">{{translation.myOrder}}</a></li>
+                                <li ng-if="isAuthenticated" class="divider"></li>
                                 <li ng-if="isAuthenticated" >
-                                    <a href="#" ng-click="logout()">Logout</a>
+                                    <a href="#" ng-click="logout()">{{translation.logout}}</a>
                                 </li>
                             </ul>
                         </li>                        
-                        <li class="language">Language:
+                        <li class="language">{{translation.lang}}:
                             <select class="form-control" ng-change="translate()" ng-model="selectedLanguage">
-                                <option value="en">eng</option>
-                                <option value="ru">rus</option>
+                                <option value="en">English</option>
+                                <option value="ru">Русский</option>
                             </select>
                         </li>
                     </ul>
@@ -64,7 +67,7 @@
                 <!--</div>-->
             </div>
         </div>
-        
+
         {{ userInfo}}
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -85,7 +88,7 @@
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/angular-resource/angular-resource.js" type="text/javascript"></script>
-        
+
         <script src="app/app.js"></script>
         <script src="common/constants.js" type="text/javascript"></script>
         <script src="common/directives.js" type="text/javascript"></script>
@@ -107,13 +110,13 @@
         <script src="app/signup/signupCtrl.js" type="text/javascript"></script>
         <script src="app/signup/signupService.js" type="text/javascript"></script>
         <script src="app/signup/passwordService.js" type="text/javascript"></script>
-        
-        <script src="common/userService.js" type="text/javascript"></script>
+
+        <script src="common/locationService.js" type="text/javascript"></script>
         <script src="common/userInfoService.js" type="text/javascript"></script>
         <script src="common/translationService.js" type="text/javascript"></script>
         <script src="common/mainCtrl.js" type="text/javascript"></script>
         <script src="app/cart/cartStatusCtrl.js" type="text/javascript"></script>
-        
+
         <script src="common/authFactory.js" type="text/javascript"></script>
         <script src="common/authHttpRequestInterceptor.js" type="text/javascript"></script>
 

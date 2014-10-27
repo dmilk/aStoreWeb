@@ -14,7 +14,7 @@ function config($routeProvider) {
 }
 ;
 
-function loginCtrl($location, $window, authFactory, UserService, SaltService) {
+function loginCtrl($location, $window, authFactory, LocationService, SaltService) {
     var vm = this;
     
     vm.submit = function (user) {
@@ -27,7 +27,7 @@ function loginCtrl($location, $window, authFactory, UserService, SaltService) {
             authFactory.login(user).success(function (data) {
                 authFactory.setAuthData(data);
                 $window.sessionStorage['authData'] = JSON.stringify(authFactory.authData);
-                $location.path(UserService.referer);
+                $location.path(LocationService.referer);
             }).error(function (data, status) {
                 console.log('ERROR');
                 console.log('data: ' + data);
@@ -35,6 +35,9 @@ function loginCtrl($location, $window, authFactory, UserService, SaltService) {
             });
             password = '';
         });
+    };
+    vm.gotoBack = function () {
+        $location.path(LocationService.referer);
     };
 }
 ;

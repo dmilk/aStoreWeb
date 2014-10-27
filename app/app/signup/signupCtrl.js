@@ -14,7 +14,7 @@ function config($routeProvider) {
 }
 ;
 
-function signupCtrl(SignupService, PasswordService, UserService) {
+function signupCtrl($location, SignupService, PasswordService, LocationService) {
     var vm = this;
 
     vm.submit = function (user) {
@@ -40,7 +40,7 @@ function signupCtrl(SignupService, PasswordService, UserService) {
                                 console.log(data.authToken);
                                 //authFactory.setAuthData(data);
                                 //$window.sessionStorage['authData'] = JSON.stringify(authFactory.authData);
-                                $location.path(UserService.referer);
+                                $location.path(LocationService.referer);
                             },
                             function error(data, status) {
                                 console.log('### Error: error set password');

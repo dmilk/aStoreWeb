@@ -15,5 +15,10 @@
     "ADD_TO_CART": "Add to cart",
     "EMPTY": "Cart is empty",
     "FULL": " items in cart",
-    "RUB": "RUB"
+    "RUB": "RUB",
+    "login": "Login",
+    "signup": "Signup",
+    "myOrder": "My Order",
+    "logout": "Logout",
+    "cancel": "Cancel"
 }
