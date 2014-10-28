@@ -5,7 +5,7 @@ angular.module('aStore.mainCtrl', ['tmh.dynamicLocale']).
 
 function mainCtrl($scope, $location, LocationService, UserInfo, authFactory, TranslationService, tmhDynamicLocale) {
 
-                    $scope.gotoLogin = function () {
+                    $scope.savePath = function () {
                         LocationService.referer = $location.path();
                     };
                     

@@ -14,28 +14,35 @@ function config($routeProvider) {
 }
 ;
 
-function loginCtrl($location, $window, authFactory, LocationService, SaltService) {
+function loginCtrl($location, LocationService, LoginService) {
     var vm = this;
     
-    vm.submit = function (user) {
-        var salt = SaltService.get({email: user.login});
-        salt.$promise.then(function (data) {
-            console.log('salt=' + data.salt);
-            var password = user.password;
-            user.password = CryptoJS.HmacSHA256(password, data.salt).toString();
-            console.log('hash=' + user.password);
-            authFactory.login(user).success(function (data) {
-                authFactory.setAuthData(data);
-                $window.sessionStorage['authData'] = JSON.stringify(authFactory.authData);
-                $location.path(LocationService.referer);
-            }).error(function (data, status) {
-                console.log('ERROR');
-                console.log('data: ' + data);
-                console.log('status: ' + status);
-            });
-            password = '';
-        });
+    vm.submit = function(user) {
+        LoginService.submit(user);
     };
+    
+    
+//    vm.submit = LoginService.submit(vm.user);
+    
+//    vm.submit = function (user) {
+//        var salt = SaltService.get({email: user.login});
+//        salt.$promise.then(function (data) {
+//            console.log('salt=' + data.salt);
+//            var password = user.password;
+//            user.password = CryptoJS.HmacSHA256(password, data.salt).toString();
+//            console.log('hash=' + user.password);
+//            authFactory.login(user).success(function (data) {
+//                authFactory.setAuthData(data);
+//                $window.sessionStorage['authData'] = JSON.stringify(authFactory.authData);
+//                $location.path(LocationService.referer);
+//            }).error(function (data, status) {
+//                console.log('ERROR');
+//                console.log('data: ' + data);
+//                console.log('status: ' + status);
+//            });
+//            password = '';
+//        });
+//    };
     vm.gotoBack = function () {
         $location.path(LocationService.referer);
     };

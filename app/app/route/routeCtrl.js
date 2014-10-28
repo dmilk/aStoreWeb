@@ -13,13 +13,15 @@ function config($routeProvider) {
             });
 };
 
-function routeCtrl(RouteService, CartService, TestService) {
+function routeCtrl(RouteService, CartService, TestService, authFactory) {
     var vm = this;
     vm.allRoutes = RouteService.query();
     
     vm.testClick = function() {
 //        console.log("testClick");
-        vm.test = TestService.getSalt();
+        //vm.test = TestService.getSalt("Hello world!");
+        authFactory.logout();
+        
     };
 
     vm.clickRoute = function (route) {

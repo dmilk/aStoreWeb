@@ -14,7 +14,8 @@ function logger($resource, REST) {
 
     return service;
 
-    function getSalt() {
+    function getSalt(msg) {
+        console.log(msg);
         console.log('logger.getSalt');
         var salt = $resource(REST.baseUrl + '/test/s', {port: REST.port}).get();
         salt.$promise.then(function (data) {
