@@ -3,10 +3,10 @@
 angular.module('aStore.mainCtrl', ['tmh.dynamicLocale']).
         controller('mainCtrl', mainCtrl);
 
-function mainCtrl($scope, $location, LocationService, UserInfo, authFactory, TranslationService, tmhDynamicLocale) {
+function mainCtrl($scope, LocationService, UserInfo, authFactory, TranslationService, tmhDynamicLocale) {
 
                     $scope.savePath = function () {
-                        LocationService.referer = $location.path();
+                        LocationService.savePath();
                     };
                     
                     $scope.logout = function() {

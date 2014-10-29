@@ -9,11 +9,10 @@ var aStore = angular.module('aStore', [
     'aStore.ticket',
     'aStore.cart',
     'aStore.checkout',
-//    'aStore.services',
     'aStore.interceptor',
     'aStore.mainCtrl',
     'aStore.cartStatus',
-    'aStore.directives'
+    'aStore.directives',
 ]).
         config(['$routeProvider', function ($routeProvider) {
                 $routeProvider.otherwise({redirectTo: '/app/route'});
