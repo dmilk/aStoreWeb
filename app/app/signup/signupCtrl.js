@@ -2,8 +2,7 @@
 
 angular.module('aStore.signup', [])
         .config(config)
-        .controller('signupCtrl', signupCtrl)
-        .controller('myCtrl', myCtrl);
+        .controller('signupCtrl', signupCtrl);
 
 function config($routeProvider) {
     $routeProvider
@@ -17,25 +16,22 @@ function config($routeProvider) {
 
 function signupCtrl(SignupService, LocationService) {
     var vm = this;
-    
-    vm.submit = function(user) {
+
+    vm.submit = function (user) {
         SignupService.submit(user);
     };
-    
-    vm.cancel = function() {
+
+    vm.cancel = function () {
         LocationService.gotoBack();
     };
-    
-    vm.fillForm = function() {
-        console.log('fillForm');
-        vm.inputEmail = 'a@a';
+
+    vm.fillForm = function (user) {
+        console.log('fillForm2');
+        user.email = 'ddd@dd';
+        user.firstname = 'Oleg';
+        user.lastname = 'Sorokin';
+        user.phone = '7755529';
     };
 }
 ;
 
-function myCtrl() {
-    console.log('myCtrl');
-    var vm2 = this;
-    vm2.test = 'xxxx';
-    vm2.signupForm.inputEmail = 'a@a';
-}
