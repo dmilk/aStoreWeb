@@ -1,25 +1,23 @@
 user = {{ signup.user}}
 salt = {{ signup.salt}}
 <br>
-    <form name="signupForm" ng-submit="signup.submit(user)" ng-init="user={}">
+    <form name="signupForm" ng-submit="signup.submit(signup.user)">
         test = {{my.test}}
-        <input type="email" name="inputEmail" placeholder="E-Mail" ng-model="user.email" ng-required>
+        <input type="email" name="inputEmail" placeholder="E-Mail" ng-model="signup.user.email" ng-required>
         <br>
-        <input type="password" name="inputPassword" placeholder="Password" ng-model="user.password" ng-required>
+        <input type="password" name="inputPassword" placeholder="Password" ng-model="signup.user.password" ng-required>
         <br>
-        <input type="password" name="inputPasswordConfirm" placeholder="Confirm Password" ng-model="user.passwordConfirm" 
-               data-match="user.password" required>
+        <input type="password" name="inputPasswordConfirm" placeholder="Confirm Password" ng-model="signup.user.passwordConfirm" 
+               data-match="signup.user.password" required>
         <div ng-show="signupForm.inputPasswordConfirm.$error.match">PASSWORDS do not match!</div>
         <br>
-        <input type="text" name="inputFirstname" placeholder="Firstname" ng-model="user.firstname" ng-required>
+        <input type="text" name="inputFirstname" placeholder="Firstname" ng-model="signup.user.firstname" ng-required>
         <br>
-        <input type="text" name="inputLastname" placeholder="Lastname" ng-model="user.lastname" ng-required>
+        <input type="text" name="inputLastname" placeholder="Lastname" ng-model="signup.user.lastname" ng-required>
         <br>
-        <input type="text" name="inputPhone" placeholder="Phone" ng-model="user.phone" ng-required>
+        <input type="text" name="inputPhone" placeholder="Phone" ng-model="signup.user.phone" ng-required>
         <br>
         <button type="submit" class="btn btn-default pull-left" ng-disabled="signupForm.$invalid">Submit</button>
     </form>
 <div class="span1 offset0"></div>
 <button class="btn btn-default pull-left" ng-click="signup.cancel()">{{translation.cancel}}</button>
-<div class="span1 offset0"></div>
-<button class="btn btn-default pull-right" ng-click="signup.fillForm(user)">fill Form</button>

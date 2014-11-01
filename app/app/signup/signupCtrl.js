@@ -14,8 +14,10 @@ function config($routeProvider) {
 }
 ;
 
-function signupCtrl(SignupService, LocationService) {
+function signupCtrl($scope, SignupService, LocationService) {
     var vm = this;
+
+    vm.user = {};
 
     vm.submit = function (user) {
         SignupService.submit(user);
@@ -25,13 +27,15 @@ function signupCtrl(SignupService, LocationService) {
         LocationService.gotoBack();
     };
 
-    vm.fillForm = function (user) {
-        console.log('fillForm2');
-        user.email = 'ddd@dd';
-        user.firstname = 'Oleg';
-        user.lastname = 'Sorokin';
-        user.phone = '7755529';
+    vm.initForm = function () {
+        console.log('init func');
+        vm.user.email = 'ddd@dd';
+        vm.user.firstname = 'Oleg';
+        vm.user.lastname = 'Sorokin';
+        vm.user.phone = '7755529';
     };
+    
+    this.initForm();
 }
 ;
 
