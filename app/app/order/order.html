@@ -1,0 +1,30 @@
+Order: {{order}}
+<br>
+{{translation.myorder}}
+<table class="table table-striped">
+    <tr ng-repeat="currentOrder in order.allOrders">
+<!--        <td>
+            <img ng-src="img/ticket/{{currentTicket.name}}.png"/>
+        </td>-->
+        <td>
+            Дата заказа:&nbsp&nbsp&nbsp{{currentOrder.dateCreated}} 
+        </td>
+        <td>
+            Cтоимость заказа:&nbsp&nbsp&nbsp{{currentOrder.amount}} 
+        </td>
+        <td>
+            Контактное лицо:&nbsp&nbsp&nbsp{{currentOrder.firstName}}&nbsp{{currentOrder.firstName}}
+        </td>
+        <td>
+            E-mail:&nbsp&nbsp{{currentOrder.email}}
+        </td>
+        <td>
+            Направление:&nbsp&nbsp&nbsp{{translation[currentOrder.route.name]}}
+        </td>
+<!--        <td>
+            <button class="btn btn-primary" ng-click="ticket.addToCart(currentTicket)">
+                {{translation.ADD_TO_CART}}
+            </button>
+        </td>-->
+    </tr>
+</table>

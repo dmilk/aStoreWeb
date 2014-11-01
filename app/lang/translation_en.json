@@ -16,9 +16,16 @@
     "EMPTY": "Cart is empty",
     "FULL": " items in cart",
     "RUB": "RUB",
-    "login": "Login",
-    "signup": "Signup",
-    "myOrder": "My orders",
-    "logout": "Logout",
-    "cancel": "Cancel"
+    "login":"Login",
+    "signup":"Signup",
+    "myOrder":"My Orders",
+    "logout":"Logout",
+    "TDR":"Ticket Data Request",
+    "lang":"Language",
+    "pass":"Passport",
+    "little_pass":"Little_passport",
+    "tech":"D`Immatriculation",
+    "hi":"Hi",
+    "password":"Password",
+    "cancel":"Cancel"
 }
