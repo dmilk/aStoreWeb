@@ -1,7 +1,9 @@
 <br>
 <div class="span12 centered">
-    <form name="loginForm" ng-submit="login.submit(user)">
-        <input type="email" name="inputEmail" placeholder="E-Mail" ng-model="user.login" ng-required>
+    <form name="loginForm" ng-submit="login.submit(user)" novalidate>
+        <div class="controls">
+            <input type="email" name="inputEmail" placeholder="E-Mail" ng-model="user.login" ng-required>
+        </div>
         <br>
         <input type="password" name="inputPassword" placeholder="Password" ng-model="user.password" ng-required>
         <br>

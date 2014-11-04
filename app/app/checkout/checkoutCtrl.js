@@ -14,7 +14,7 @@ function config($routeProvider) {
 }
 ;
 
-function checkoutCtrl($location, CartService, CheckoutService, PurchaseService) {
+function checkoutCtrl(CartService, CheckoutService, authFactory, LocationService, UserService) {
     var vm = this;
     vm.Cart = CartService;
 
@@ -23,38 +23,60 @@ function checkoutCtrl($location, CartService, CheckoutService, PurchaseService) 
     vm.surcharge = 10;
     vm.total = vm.surcharge + parseFloat(CartService.getTotal());
 
-    // make purchase:
     vm.submitPurchase = function () {
-        // create new Purchase service:
-        var newPurchase = new PurchaseService();
-        // initialize it with data:
-        newPurchase.firstName = vm.purchase.firstName;
-        newPurchase.secondName = vm.purchase.secondName;
-        newPurchase.email = vm.purchase.email;
-        newPurchase.phone = vm.purchase.phone;
-        newPurchase.routeId = CartService.routeId;
-        newPurchase.cart = CartService.getTickets();
-        
-//        CheckoutService.log(vm.purchase);
-        // and persist it:
-        newPurchase.$save(function success(data) {
-            // empty the cart:
-            CartService.removeAll();
-            // init scope with purchase confirmation number:
+        console.log('Ctrl submitPurchase');
+        CheckoutService.submit(vm.purchase).then(function (data) {
             vm.orderId = data.orderId;
         });
-    };
+        console.log('return from service');
+    }
 
-    // cancel purchase:
+//    // make purchase:
+//    vm.submitPurchase = function () {
+//        // create new Purchase service:
+//        var newPurchase = new PurchaseService();
+//        // initialize it with data:
+//        newPurchase.firstName = vm.purchase.firstName;
+//        newPurchase.secondName = vm.purchase.secondName;
+//        newPurchase.email = vm.purchase.email;
+//        newPurchase.phone = vm.purchase.phone;
+//        newPurchase.routeId = CartService.routeId;
+//        newPurchase.cart = CartService.getTickets();
+//        
+////        CheckoutService.log(vm.purchase);
+//        // and persist it:
+//        newPurchase.$save(function success(data) {
+//            // empty the cart:
+//            CartService.removeAll();
+//            // init scope with purchase confirmation number:
+//            vm.orderId = data.orderId;
+//        });
+//    };
+
     vm.cancelPurchase = function () {
-        CartService.removeAll();
-        $location.path("#");
+        // А надо-ли очищать корзину?
+//        CartService.removeAll();
+        LocationService.gotoBack();
     }
 
     // start shopping again:
     vm.startShoppingAgain = function () {
-        $location.path("#");
+        LocationService.gotoHome();
     }
+    
+    vm.initForm = function () {
+        console.log('init func');
+        if (authFactory.isAuthenticated()) {
+            console.log('right user');
+            vm.purchase = UserService.getInfo();
+        }
+//        vm.user.email = 'ddd@dd';
+//        vm.user.firstname = 'Oleg';
+//        vm.user.lastname = 'Sorokin';
+//        vm.user.phone = '7755529';
+    };
+    
+    this.initForm(); 
 
 }
 ;

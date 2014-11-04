@@ -15,10 +15,15 @@ function config($routeProvider) {
 
 function orderCtrl(OrderService) {
     var vm = this;
-    vm.allOrders = OrderService.query();
+    
+    vm.allOrders = OrderService.findAll();
+    vm.showTickets = false;
 
-//    vm.clickRoute = function (route) {
-//        CartService.routeId = route.id;
-//    };
+    vm.getOrderedTickets = function(cn) {
+        console.log('showTable ' + cn);
+        vm.showTickets = !vm.showTickets;
+        vm.orderedTickets = OrderService.findOrderedTickets(cn);
+        
+    }
 };
 

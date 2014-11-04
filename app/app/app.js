@@ -4,6 +4,7 @@ var aStore = angular.module('aStore', [
     'ngRoute',
     'aStore.login',
     'aStore.signup',
+    'aStore.order',
     'aStore.route',
     'aStore.category',
     'aStore.ticket',

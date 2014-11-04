@@ -14,7 +14,7 @@ function config($routeProvider) {
 }
 ;
 
-function signupCtrl($scope, SignupService, LocationService) {
+function signupCtrl(SignupService, LocationService, authFactory, UserService) {
     var vm = this;
 
     vm.user = {};
@@ -29,13 +29,16 @@ function signupCtrl($scope, SignupService, LocationService) {
 
     vm.initForm = function () {
         console.log('init func');
-        vm.user.email = 'ddd@dd';
-        vm.user.firstname = 'Oleg';
-        vm.user.lastname = 'Sorokin';
-        vm.user.phone = '7755529';
+        if (authFactory.isAuthenticated()) {
+            vm.user = UserService.getInfo();
+        }
+//        vm.user.email = 'ddd@dd';
+//        vm.user.firstname = 'Oleg';
+//        vm.user.lastname = 'Sorokin';
+//        vm.user.phone = '7755529';
     };
     
-    this.initForm();
+    this.initForm(); 
 }
 ;
 

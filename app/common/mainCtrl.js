@@ -3,7 +3,7 @@
 angular.module('aStore.mainCtrl', ['tmh.dynamicLocale']).
         controller('mainCtrl', mainCtrl);
 
-function mainCtrl($scope, LocationService, UserInfo, authFactory, TranslationService, tmhDynamicLocale) {
+function mainCtrl($scope, LocationService, UserService, authFactory, TranslationService, tmhDynamicLocale) {
 
                     $scope.savePath = function () {
                         LocationService.savePath();
@@ -14,12 +14,13 @@ function mainCtrl($scope, LocationService, UserInfo, authFactory, TranslationSer
                     };
                     
 
-                    $scope.userInfo = UserInfo.get();
+                    $scope.userInfo = UserService.getInfo();
+                    //console.log('UserService.someEmail = ' + UserService.someEmail);
                     $scope.isAuthenticated = authFactory.isAuthenticated();
 
 
                     $scope.$on('authChanged', function (event, args) {
-                        $scope.userInfo = UserInfo.get();
+                        $scope.userInfo = UserService.getInfo();
                         $scope.isAuthenticated = authFactory.isAuthenticated();
                     });
 

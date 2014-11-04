@@ -17,7 +17,7 @@
         <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body ng-controller="mainCtrl">
-        {{isAuthenticated}}
+        <!--{{isAuthenticated}}-->
         <div id="header">
             <div class="navbar navbar-default navbar-fixed-top">
                 <div class="navbar-inner">
@@ -50,7 +50,7 @@
                                 <li ng-if="!isAuthenticated">
                                     <a href="#/app/signup" ng-click="savePath()">{{translation.signup}}</a></li>
                                 <li ng-if="isAuthenticated">
-                                    <a href="#/order">{{translation.myOrder}}</a></li>
+                                    <a href="#/app/order">{{translation.myOrder}}</a></li>
                                 <li ng-if="isAuthenticated" class="divider"></li>
                                 <li ng-if="isAuthenticated" >
                                     <a href="#" ng-click="logout()">{{translation.logout}}</a>
@@ -104,14 +104,15 @@
         <script src="app/cart/cartService.js" type="text/javascript"></script>
         <script src="app/checkout/checkoutCtrl.js" type="text/javascript"></script>
         <script src="app/checkout/checkoutService.js" type="text/javascript"></script>
-        <script src="app/checkout/purchaseService.js" type="text/javascript"></script>
         <script src="app/login/loginCtrl.js" type="text/javascript"></script>
         <script src="app/login/loginService.js" type="text/javascript"></script>
         <script src="app/signup/signupCtrl.js" type="text/javascript"></script>
         <script src="app/signup/signupService.js" type="text/javascript"></script>
-
+        <script src="app/order/orderCtrl.js" type="text/javascript"></script>
+        <script src="app/order/orderService.js" type="text/javascript"></script>
+        
         <script src="common/locationService.js" type="text/javascript"></script>
-        <script src="common/userInfoService.js" type="text/javascript"></script>
+        <script src="common/userService.js" type="text/javascript"></script>
         <script src="common/translationService.js" type="text/javascript"></script>
         <script src="common/mainCtrl.js" type="text/javascript"></script>
         <script src="app/cart/cartStatusCtrl.js" type="text/javascript"></script>

@@ -12,6 +12,7 @@ function locationService($location) {
     var service = {
         savePath: savePath,
         gotoBack: gotoBack,
+        gotoHome: gotoHome,
         referer: referer
     };
     return service;
@@ -22,6 +23,10 @@ function locationService($location) {
         } else {
             $location.path('#');
         }
+    }
+    
+    function gotoHome() {
+        $location.path('#');
     }
 
     function savePath() {
