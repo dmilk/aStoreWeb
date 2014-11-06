@@ -13,12 +13,13 @@ function locationService($location) {
         savePath: savePath,
         gotoBack: gotoBack,
         gotoHome: gotoHome,
+        gotoOrderedTicket: gotoOrderedTicket,
         referer: referer
     };
     return service;
 
     function gotoBack() {
-        if (!angular.isUndefined(referer)) {
+        if (!angular.isUndefined(this.referer)) {
             $location.path(this.referer);
         } else {
             $location.path('#');
@@ -31,6 +32,11 @@ function locationService($location) {
 
     function savePath() {
         this.referer = $location.path();
+    }
+    
+    function gotoOrderedTicket() {
+        this.savePath();
+        $location.path('app/orderedTicket');
     }
 }
 ;

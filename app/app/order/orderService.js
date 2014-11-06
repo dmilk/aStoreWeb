@@ -9,24 +9,25 @@ orderService.$inject = ['$resource', 'REST'];
 function orderService($resource, REST) {
     var service = {
         findAll: findAll,
-        findOrderedTickets: findOrderedTickets
+        setOrder: setOrder,
+        getOrder: getOrder,
+        order: order
+
     };
 
     return service;
-
+    
+    var order = {};
+    
+    function setOrder(order) {
+        this.order = order;
+    }
+    
+    function getOrder() {
+        return this.order;
+    }
+    
     function findAll() {
         return $resource(REST.baseUrl + '/order', {port: REST.port}).query();
     }
-    
-    function findOrderedTickets(cn) {
-        console.log("service " + cn);
-        return $resource(REST.baseUrl + '/orderedTicket', {port: REST.port}).query({cn:cn});
-    }
 }
-
-
-//angular
-//        .module('aStore')
-//        .factory('OrderService', function ($resource, REST) {
-//            return $resource(REST.baseUrl + '/order', {port: REST.port});
-//        });

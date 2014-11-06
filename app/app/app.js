@@ -5,6 +5,7 @@ var aStore = angular.module('aStore', [
     'aStore.login',
     'aStore.signup',
     'aStore.order',
+    'aStore.orderedTicket',
     'aStore.route',
     'aStore.category',
     'aStore.ticket',

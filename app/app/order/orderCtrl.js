@@ -13,17 +13,15 @@ function config($routeProvider) {
             });
 };
 
-function orderCtrl(OrderService) {
+function orderCtrl(OrderService, LocationService) {
     var vm = this;
     
     vm.allOrders = OrderService.findAll();
-    vm.showTickets = false;
 
-    vm.getOrderedTickets = function(cn) {
-        console.log('showTable ' + cn);
-        vm.showTickets = !vm.showTickets;
-        vm.orderedTickets = OrderService.findOrderedTickets(cn);
-        
-    }
+    vm.orderedTicket = function(order) {
+        OrderService.setOrder(order);
+        LocationService.gotoOrderedTicket();
+    };
+    
 };
 

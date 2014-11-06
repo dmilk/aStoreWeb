@@ -1,6 +1,4 @@
-<!--Order: {{order.allOrders}}
-<br>
-OrderedTickets: {{order.orderedTickets}}-->
+<!--Order: {{order.allOrders}}-->
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -12,49 +10,12 @@ OrderedTickets: {{order.orderedTickets}}-->
         </tr>
     </thead>
     <tbody>
-        <!--<div ng-repeat="curOrder in order.allOrders">-->
-        <tr ng-repeat="curOrder in order.allOrders" ng-click="order.getOrderedTickets(curOrder.confirmationNumber)">
-            <!--<tr ng-click="order.getOrderedTickets(curOrder.confirmationNumber)">-->
+        <tr ng-repeat="curOrder in order.allOrders" ng-click="order.orderedTicket(curOrder)">
             <td>{{curOrder.dateCreated| date : 'medium'}}</td>
             <td>{{curOrder.amount}}</td>
             <td>{{curOrder.firstName}} {{curOrder.lastName}}</td>
             <td>{{curOrder.email}}</td>
             <td>{{translation[curOrder.route.name]}}</td>
         </tr>
-        <tr ng-show="order.showTickets">
-            <td colspan="5">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <td>Категория</td>
-                            <td>Тип</td>
-                            <td>Данные</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="curTicket in order.orderedTickets">
-                            <td>{{curTicket.ticket.category.name}}</td>
-                            <td>{{curTicket.ticket.name}}</td>
-                            <td>{{curTicket.ticketData}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-        <!--</div>-->
-
     </tbody>
 </table>
-NEW TABLE
-<table>
-
-        <tr>
-    <div ng-repeat="x in order.allOrders">
-            <td>{{x.dateCreated}}</td>
-    </div>
-        </tr>
-        <tr>
-            <td>----------------</td>
-        </tr>
-</table>
-

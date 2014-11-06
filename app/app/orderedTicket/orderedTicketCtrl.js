@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('aStore.order', [])
+angular.module('aStore.orderedTicket', [])
         .config(config)
-        .controller('orderedTicketCtrl', orderedTicket);
+        .controller('orderedTicketCtrl', orderedTicketCtrl);
 
 function config($routeProvider) {
     $routeProvider
@@ -13,17 +13,14 @@ function config($routeProvider) {
             });
 };
 
-function orderedTicketCtrl(OrderedTicketService) {
+function orderedTicketCtrl(OrderService, LocationService) {
     var vm = this;
     
-    vm.allOrders = OrderService.findAll();
-    vm.showTickets = false;
-
-    vm.getOrderedTickets = function(cn) {
-        console.log('showTable ' + cn);
-        vm.showTickets = !vm.showTickets;
-        vm.orderedTickets = OrderedTicketService.findOrderedTickets(cn);
-        
+    vm.order = OrderService.getOrder();
+    
+    vm.gotoBack = function() {
+        LocationService.gotoBack();
     }
+    
 };
 
