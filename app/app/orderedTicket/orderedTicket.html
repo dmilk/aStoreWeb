@@ -1,0 +1,45 @@
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <td>Дата заказа</td>
+            <td>Cтоимость заказа</td>
+            <td>Контактное лицо</td>
+            <td>E-mail</td>
+            <td>Направление</td>
+        </tr>
+    </thead>
+    <tbody>
+        <!--<div ng-repeat="curOrder in order.allOrders">-->
+        <tr ng-repeat="curOrder in order.allOrders" ng-click="order.getOrderedTickets(curOrder.confirmationNumber)">
+            <!--<tr ng-click="order.getOrderedTickets(curOrder.confirmationNumber)">-->
+            <td>{{curOrder.dateCreated| date : 'medium'}}</td>
+            <td>{{curOrder.amount}}</td>
+            <td>{{curOrder.firstName}} {{curOrder.lastName}}</td>
+            <td>{{curOrder.email}}</td>
+            <td>{{translation[curOrder.route.name]}}</td>
+        </tr>
+        <tr ng-show="order.showTickets">
+            <td colspan="5">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Категория</td>
+                            <td>Тип</td>
+                            <td>Данные</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="curTicket in order.orderedTickets">
+                            <td>{{curTicket.ticket.category.name}}</td>
+                            <td>{{curTicket.ticket.name}}</td>
+                            <td>{{curTicket.ticketData}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <!--</div>-->
+
+    </tbody>
+</table>
+
