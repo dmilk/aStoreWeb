@@ -21,8 +21,8 @@ function signupService($resource, REST, authFactory, LocationService) {
         var Password = $resource(REST.baseUrl + '/user/password', {port: REST.port});
 
         var newSignup = new Signup();
-        newSignup.firstName = user.firstname;
-        newSignup.lastName = user.lastname;
+        newSignup.firstName = user.firstName;
+        newSignup.lastName = user.lastName;
         newSignup.email = user.email;
         newSignup.phone = user.phone;
 
