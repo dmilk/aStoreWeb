@@ -52,7 +52,7 @@ function signupService($resource, REST, authFactory, LocationService) {
                 function error(data, status) {
                     console.log('### Error: user already exist');
                 });
-        return "salt";
+//        return "salt";
     }
 }
 ;

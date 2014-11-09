@@ -11,6 +11,7 @@ function orderService($resource, REST) {
         findAll: findAll,
         setOrder: setOrder,
         getOrder: getOrder,
+        testRole: testRole,
         order: order
 
     };
@@ -18,6 +19,10 @@ function orderService($resource, REST) {
     return service;
     
     var order = {};
+    
+    function testRole() {
+        return $resource(REST.baseUrl + '/test/am', {port: REST.port}).get();
+    }
     
     function setOrder(order) {
         this.order = order;

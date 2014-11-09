@@ -23,5 +23,9 @@ function orderCtrl(OrderService, LocationService) {
         LocationService.gotoOrderedTicket();
     };
     
+    vm.testRole = function() {
+        vm.res = OrderService.testRole();
+    }
+    
 };
 

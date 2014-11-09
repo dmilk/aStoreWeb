@@ -4,9 +4,11 @@ angular
         .module('aStore')
         .factory('LoginService', loginService);
 
-loginService.$inject = ['$window', '$resource', 'REST', 'authFactory', 'LocationService'];
+//loginService.$inject = ['$window', '$resource', 'REST', 'authFactory', 'LocationService'];
+loginService.$inject = ['$resource', 'REST', 'authFactory', 'LocationService'];
 
-function loginService($window, $resource, REST, authFactory, LocationService) {
+//function loginService($window, $resource, REST, authFactory, LocationService) {
+function loginService($resource, REST, authFactory, LocationService) {
 
     var service = {
         submit: submit
@@ -23,7 +25,7 @@ function loginService($window, $resource, REST, authFactory, LocationService) {
             console.log(newUser.password);
             authFactory.login(newUser).success(function (data) {
                 authFactory.setAuthData(data);
-                $window.sessionStorage['authData'] = JSON.stringify(authFactory.authData);
+//                $window.sessionStorage['authData'] = JSON.stringify(authFactory.authData);
                 LocationService.gotoBack();
 //                $location.path(LocationService.referer);
             }).error(function (data, status) {

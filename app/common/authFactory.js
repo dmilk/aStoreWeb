@@ -13,6 +13,7 @@ angular
                     authToken: aData.authToken,
                     authPermission: aData.authPermissionSet
                 };
+                $window.sessionStorage['authData'] = JSON.stringify(this.authData);
                 $rootScope.$broadcast('authChanged');
             };
 
