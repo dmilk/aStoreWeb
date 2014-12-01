@@ -16,6 +16,7 @@ function config($routeProvider) {
 function routeCtrl(RouteService, CartService, TestService, authFactory) {
     var vm = this;
     vm.allRoutes = RouteService.query();
+    vm.Cart = CartService;
     
     vm.testClick = function() {
 //        console.log("testClick");

@@ -25,7 +25,7 @@ function cartCtrl($location, CartService) {
         vm.content = CartService.getTickets();
         vm.total = CartService.getTotal();
         // уходим из корзины раз там пусто
-        if (CartService.size() == 0) {
+        if (CartService.size() === 0) {
             $location.path("#");
         }
     }

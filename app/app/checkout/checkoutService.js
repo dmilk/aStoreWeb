@@ -23,8 +23,12 @@ function checkoutService($resource, REST, CartService) {
         newPurchase.lastName = purchase.lastName;
         newPurchase.email = purchase.email;
         newPurchase.phone = purchase.phone;
-        newPurchase.routeId = CartService.routeId;
-        newPurchase.cart = CartService.getTickets();
+        newPurchase.route = {};
+        var route = {};
+        route.id = CartService.routeId;
+        newPurchase.route = route;
+
+        newPurchase.orderedTicketCollection = CartService.getTickets();
         return newPurchase.$save(
                 function (successData) {
             CartService.removeAll();
