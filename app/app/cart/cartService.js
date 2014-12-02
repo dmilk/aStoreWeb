@@ -12,13 +12,13 @@ angular
                     this.items.push(angular.copy(ticket));
                     this.fireChanges();
                 };
-                
+
                 this.fireChanges = function () {
                     for (var i = 0; i < this.listeners.length; i++) {
                         this.listeners[i].call();
                     }
                 };
-                
+
                 this.remove = function (ticket) {
                     for (var i = 0; i < this.items.length; i++) {
                         if (this.items[i] === ticket) {
@@ -28,24 +28,46 @@ angular
                         }
                     }
                 };
-                
+
                 this.removeAll = function () {
                     this.items = [];
                     this.fireChanges();
                 };
-                
+
                 this.size = function () {
                     return this.items.length;
                 };
-                
+
                 this.getTickets = function () {
                     return this.items;
                 };
-                
+
+                this.getOrderedTicketCollection = function () {
+                    var orderedTicketCollection = [];
+                    for (var i = 0; i < this.items.length; i++) {
+                        var orderedTicket = {};
+                        var ticket = {};
+                        var category = {};
+                        category.id = this.items[i].category.id;
+                        category.name = this.items[i].category.name;
+
+                        ticket.id = this.items[i].id;
+                        ticket.name = this.items[i].name;
+                        ticket.price = this.items[i].price;
+                        ticket.category = category;
+
+                        orderedTicket.ticket = ticket;
+                        orderedTicket.ticketData = this.items[i].ticketData;
+                        orderedTicketCollection.push(orderedTicket);
+
+                    }
+                    return orderedTicketCollection;
+                }
+
                 this.addListener = function (listener) {
                     this.listeners.push(listener);
                 };
-                
+
                 this.getTotal = function () {
                     var total = 0;
                     for (var i = 0; i < this.items.length; i++) {

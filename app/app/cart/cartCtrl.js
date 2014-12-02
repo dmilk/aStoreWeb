@@ -18,6 +18,7 @@ function cartCtrl($location, CartService) {
     var vm = this;
 
     vm.Cart = CartService;
+    vm.otc = CartService.getTickets();
 
     updateScope();
 
