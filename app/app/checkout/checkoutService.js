@@ -37,6 +37,8 @@ function checkoutService($resource, REST, CartService) {
                 function (successData) {
             CartService.removeAll();
             orderId = successData.orderId;
+            console.log('Data ' + successData);
+            console.log('CN ' + successData.confirmationNumber);
             console.log('newPurchase ' + orderId);
             return orderId;
         }, function (errorData) {

@@ -4,7 +4,7 @@ OrderId = {{checkout.orderId}}
 <div class="row-fluid">
 
     <div class="span7 offset1" ng-hide="checkout.orderId">
-    <h1>Checkout</h1>
+    <h1>{{translation.checkout}}</h1>
     {{ checkout.purchase}}
     <!--<div style="background-color: lightgray">-->
         <table class="table table-bordered table-hover">
@@ -12,7 +12,7 @@ OrderId = {{checkout.orderId}}
                 <tr>
                     <td>Subtotal</td>
                     <td>Delivery</td>
-                    <td>Total</td>
+                     <td>{{translation.total}}</td>
                 </tr>
             </thead>
             <tbody>
@@ -25,19 +25,19 @@ OrderId = {{checkout.orderId}}
         </table>
     <!--</div>-->
 
-    Customer information:
+    <!--Customer information:-->
     <br>
     <form name="checkoutForm" class="form-horizontal" novalidate>
         <div class="control-group">
-            <label class="control-label" for="inputFirstName">First name:</label>
+            <label class="control-label" for="inputFirstName">{{translation.firstName}} :</label>
             <div class="controls">
-                <input type="text" name="inputFirstName" placeholder="First name" ng-model="checkout.purchase.firstName" required>
+                <input type="text" name="inputFirstName" placeholder={{translation.firstName}} ng-model="checkout.purchase.firstName" required>
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="inputSecondName">Second name:</label>
+            <label class="control-label" for="inputSecondName">{{translation.lastName}} :</label>
             <div class="controls">
-                <input type="text" name="inputSecondName" placeholder="Second name" ng-model="checkout.purchase.lastName" required>
+                <input type="text" name="inputSecondName" placeholder={{translation.lastName}} ng-model="checkout.purchase.lastName" required>
             </div>
         </div>
         <div class="control-group">
@@ -47,7 +47,7 @@ OrderId = {{checkout.orderId}}
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="inputPhone">Phone:</label>
+            <label class="control-label" for="inputPhone">{{translation.phone}} :</label>
             <div class="controls">
                 <input type="text" name="inputPhone" placeholder="Phone" ng-model="checkout.purchase.phone" required>
             </div>
@@ -61,8 +61,8 @@ OrderId = {{checkout.orderId}}
 
     <!-- order confirmation message: -->
     <div class="span7 offset1" ng-show="checkout.orderId">
-        <h1>Your  order has been processed.</h1>
-        <p>The order confirmation number is {{checkout.orderId}}</p>
-        <button class="btn btn-large btn-primary" type="button" ng-click="checkout.startShoppingAgain()">Continue shopping</button>            
+        <h1>{{translation.orderfinish}}.</h1>
+        <p>{{translation.ordernumber}}:  {{checkout.orderId}}</p>
+        <button class="btn btn-large btn-primary" type="button" ng-click="checkout.startShoppingAgain()">{{translation.continueshopping}}</button>            
     </div>
 </div>

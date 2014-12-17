@@ -14,10 +14,11 @@ function config($routeProvider) {
 }
 ;
 
-function cartCtrl($location, CartService) {
+function cartCtrl($location, CartService, SupportingDocumentService) {
     var vm = this;
 
     vm.Cart = CartService;
+    vm.allSupportingDocuments = SupportingDocumentService.query();
     vm.otc = CartService.getTickets();
 
     updateScope();

@@ -1,16 +1,19 @@
 Cart: {{cart.Cart}}
 <br>
 orderedTicketCollection: {{cart.otc}}
+<!--<br>
+allDoc: {{cart.allSupportingDocuments}}-->-->
+
 
 <div class="row-fluid">
     <div class="span3 offset1">
-        <a href="#/app/checkout" class="btn btn-large btn-success">Proceed to Checkout</a>
+        <a href="#/app/checkout" class="btn btn-large btn-success">{{translation.proceedcheckout}}</a>
     </div>
     <div class="span4">
-        <p class="lead">Your subtotal is {{cart.total| currency:translation.RUB}}</p>
+        <p class="lead">{{translation.cost}} :{{cart.total| currency:translation.RUB}}</p>
     </div>
     <div class="span3">
-        <button class="btn btn-large btn-danger" type="button" ng-click="cart.removeAll()">Clear the Cart</button>    
+        <button class="btn btn-large btn-danger" type="button" ng-click="cart.removeAll()">{{translation.clearcart}}</button>    
     </div>
 </div>
 
@@ -22,15 +25,58 @@ orderedTicketCollection: {{cart.otc}}
                 <tr ng-repeat="ticket in cart.content">
                     <td>
                         <img ng-src="img/ticket/{{ticket.name}}.png"/>
-                        <br>
-                        <label class="control-label" for="inputTicketData">Ticket data:</label>
-                        <input type="text" name="inputTicketData" placeholder="Ticket data" ng-model="ticket.ticketData" ng-required>
                     </td>
-                    <td>{{ticket.name}}</td>
+                    <td>
+
+                        <!--<br>-->
+                        <!--<label class="control-label" for="inputTicketData">{{translation.ticketdata}} :</label>-->
+                        <span ng-if="ticket.category.id === 1">
+                            <label class="control-label" for="inputFirstName">{{translation.firstName}} :</label>
+                            <input type="text" name="inputFirstName" placeholder={{translation.firstName}} ng-model="ticket.firstName" required>
+                            <br>
+                            <label class="control-label" for="inputLastName">{{translation.lastName}} :</label>
+                            <input type="text" name="inputLastName" placeholder={{translation.lastName}} ng-model="ticket.lastName" ng-required>
+                            <br>
+                            <label class="control-label" for="inputMiddleName">{{translation.middleName}} :</label>
+                            <input type="text" name="inputMiddleName" placeholder={{translation.middleName}} ng-model="ticket.middleName" ng-required>
+                            <br>
+                            <label class="control-label" for="inputBirthDate">{{translation.BirthDate}} :</label>
+                            <!--<input type="text" name="inputBirthDate" placeholder={{translation.birthDate}} ng-model="| date:'yyyy-MM-dd'" ng-required>-->
+                            <input type="text" name="inputBirthDate" ng-model="ticket.dob" ng-required>
+                            <!--<input type="text" name="inputBirthDate2" ng-model="ticket.birthDate2" ng-required>-->
+                            <br>
+                        </span>
+                        <!--                    </td>
+                                            <td>-->
+                        <label class="control-label">{{translation.ticketdata}} :</label>
+                        <select ng-model="ticket.supportingDocument" ng-options="document.name for document in cart.allSupportingDocuments | filter:{category:{id:ticket.category.id}}">
+                        </select>
+                        <!--<label class="control-label" for="inputTicketData">�����, ����� :</label>-->
+                        <input type="text" name="inputSupportingDocumentData" placeholder={{translation.supportingDocumentData}} ng-model="ticket.supportingDocumentData" ng-required>
+                        <!--                        <div ng-controller="datePickerController" >
+                                                  <div class="row">
+                                                    <div class="col-md-6">
+                                                      <p class="input-group">
+                                                      <input type="text" class="form-control" datepicker-append-to-body="true" datepicker-popup="dd-mm-yy" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                      <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                      </span>
+                                                      </p>
+                                                    </div>
+                                                  </div>
+                                                </div>-->
+                    </td>
+                    <td>{{translation[ticket.name]}}</td>
                     <td>{{ticket.price}}</td>
-                    <td><button class="btn btn-warning" ng-click="cart.remove(ticket)">Remove</button></td>
+                    <td><button class="btn btn-warning" ng-click="cart.remove(ticket)">{{translation.remove}}</button></td>
                 </tr>
             </table>
         </form>
     </div>
 </div>
+
+<!--
+    $(function(){
+      $('#df').datepicker({format: 'dd-mm-yyyy'});
+    });-->
+

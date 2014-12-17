@@ -48,6 +48,7 @@ angular
                         var orderedTicket = {};
                         var ticket = {};
                         var category = {};
+                        var supportingDocument = {};
                         category.id = this.items[i].category.id;
                         category.name = this.items[i].category.name;
 
@@ -56,9 +57,18 @@ angular
                         ticket.price = this.items[i].price;
                         ticket.category = category;
 
+                        supportingDocument.id = this.items[i].supportingDocument.id;
+//                        supportingDocument.name = this.items[i].supportingDocument.name;
+
                         orderedTicket.ticket = ticket;
-                        orderedTicket.ticketData = this.items[i].ticketData;
+                        orderedTicket.firstName = this.items[i].firstName;
+                        orderedTicket.lastName = this.items[i].lastName;
+                        orderedTicket.middleName = this.items[i].middleName;
+                        orderedTicket.dobString = this.items[i].dob;
+                        orderedTicket.supportingDocumentData = this.items[i].supportingDocumentData;
+                        orderedTicket.supportingDocument = supportingDocument;
                         orderedTicketCollection.push(orderedTicket);
+                        
 
                     }
                     return orderedTicketCollection;

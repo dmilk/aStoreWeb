@@ -26,7 +26,7 @@
                         <li>
                             <a class="brand" href="#" >
                                 <img src="img/logo_mini.png" alt=""/>
-                                aStore
+                                <span ng-bind="translation.anrusstrans"></span>
                             </a>
                         </li>
                         <li class="active">
@@ -34,13 +34,14 @@
                         <li><a href="#">About</a></li>
                         <li ng-controller="cartStatusCtrl">
                             <a href="#/app/cart"><img src="img/cart.gif"/>
-                                <span ng-if="size > 0">{{size}}</span> {{translation[content]}}
+                                <span ng-if="size > 0" ng-bind="size"></span> <span ng-bind="translation[content]"></span>
+
                             </a>
                         </li>
                     </ul>
                     <ul class="nav pull-right">
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown">Hi, {{(userInfo.firstName|| "anonymous")}} 
+                            <a class="dropdown-toggle" data-toggle="dropdown">Hi, <span ng-bind="userInfo.firstName|| 'anonymous'" ></span>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
@@ -57,7 +58,7 @@
                                 </li>
                             </ul>
                         </li>                        
-                        <li class="language">{{translation.lang}}:
+                        <li class="language"><span ng-bind="translation.lang":></span>
                             <select class="form-control" ng-change="translate()" ng-model="selectedLanguage">
                                 <option value="en">English</option>
                                 <option value="ru">Русский</option>
@@ -117,6 +118,7 @@
         <script src="common/translationService.js" type="text/javascript"></script>
         <script src="common/mainCtrl.js" type="text/javascript"></script>
         <script src="app/cart/cartStatusCtrl.js" type="text/javascript"></script>
+        <script src="app/cart/supportingDocumentService.js" type="text/javascript"></script>
         
         <script src="common/authFactory.js" type="text/javascript"></script>
         <script src="common/authHttpRequestInterceptor.js" type="text/javascript"></script>
