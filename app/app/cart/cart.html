@@ -41,13 +41,11 @@ allDoc: {{cart.allSupportingDocuments}}-->-->
                             <input type="text" name="inputMiddleName" placeholder={{translation.middleName}} ng-model="ticket.middleName" ng-required>
                             <br>
                             <label class="control-label" for="inputBirthDate">{{translation.BirthDate}} :</label>
-                            <!--<input type="text" name="inputBirthDate" placeholder={{translation.birthDate}} ng-model="| date:'yyyy-MM-dd'" ng-required>-->
+                            <select ng-model="dob.year" class="selectpicker dropup" data-max-options="2" size="10" ng-options="year for year in cart.years" ng-change="cart.updateDob()">       
+                            </select>
                             <input type="text" name="inputBirthDate" ng-model="ticket.dob" ng-required>
-                            <!--<input type="text" name="inputBirthDate2" ng-model="ticket.birthDate2" ng-required>-->
                             <br>
                         </span>
-                        <!--                    </td>
-                                            <td>-->
                         <label class="control-label">{{translation.ticketdata}} :</label>
                         <select ng-model="ticket.supportingDocument" ng-options="document.name for document in cart.allSupportingDocuments | filter:{category:{id:ticket.category.id}}">
                         </select>

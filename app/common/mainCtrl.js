@@ -10,7 +10,9 @@ function mainCtrl($scope, LocationService, UserService, authFactory, Translation
                     };
                     
                     $scope.logout = function() {
+//                        $scope.userInfo = {};
                         authFactory.logout();
+                        $scope.userInfo = {};
                     };
                     
 

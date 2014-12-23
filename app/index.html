@@ -17,6 +17,7 @@
         <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body ng-controller="mainCtrl">
+        UserInfo={{userInfo}}
         <!--{{isAuthenticated}}-->
         <div id="header">
             <div class="navbar navbar-default navbar-fixed-top">
@@ -41,7 +42,7 @@
                     </ul>
                     <ul class="nav pull-right">
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown">Hi, <span ng-bind="userInfo.firstName|| 'anonymous'" ></span>
+                            <a class="dropdown-toggle" data-toggle="dropdown">Hi, <span ng-bind="userInfo.firstName || 'anonymous'" ></span>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
@@ -58,7 +59,7 @@
                                 </li>
                             </ul>
                         </li>                        
-                        <li class="language"><span ng-bind="translation.lang":></span>
+                        <li class="language"><span ng-bind="translation.lang">:</span>
                             <select class="form-control" ng-change="translate()" ng-model="selectedLanguage">
                                 <option value="en">English</option>
                                 <option value="ru">Русский</option>
@@ -70,7 +71,7 @@
             </div>
         </div>
 
-        {{ userInfo}}
+        <!--{{ userInfo}}-->
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->

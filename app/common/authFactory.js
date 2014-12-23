@@ -31,7 +31,7 @@ angular
 
             authFactory.logout = function () {
                 $window.sessionStorage.removeItem("authData");
-//                this.setAuthData({authToken: "", authPermission: ""});
+//                $window.sessionStorage.clear();
                 this.authData = undefined;
                 $rootScope.$broadcast('authChanged');
             };
@@ -40,8 +40,7 @@ angular
                 if ($window.sessionStorage["authData"]) {
                     authFactory.setAuthData(JSON.parse($window.sessionStorage["authData"]));
                 }
-            }
-            ;
+            };
 
             init();
 
