@@ -3,6 +3,7 @@ Cart: {{cart.Cart}}
 orderedTicketCollection: {{cart.otc}}
 <!--<br>
 allDoc: {{cart.allSupportingDocuments}}-->-->
+<div>{{ 4 | date:'MMM'}}</div>
 
 
 <div class="row-fluid">
@@ -41,9 +42,17 @@ allDoc: {{cart.allSupportingDocuments}}-->-->
                             <input type="text" name="inputMiddleName" placeholder={{translation.middleName}} ng-model="ticket.middleName" ng-required>
                             <br>
                             <label class="control-label" for="inputBirthDate">{{translation.BirthDate}} :</label>
-                            <select ng-model="dob.year" class="selectpicker dropup" data-max-options="2" size="10" ng-options="year for year in cart.years" ng-change="cart.updateDob()">       
+
+                            <select ng-model="cart.dob.year" ng-options="year for year in cart.years" ng-change="cart.updateDob(ticket)">       
+                                <option value="" selected="">Year</option>
                             </select>
-                            <input type="text" name="inputBirthDate" ng-model="ticket.dob" ng-required>
+                            <select ng-model="cart.dob.month" ng-options="month | currency for month in cart.months" ng-change="cart.updateDob(ticket)">
+                                <option value="" selected="">Month</option>
+                            </select>
+                            <select ng-model="cart.dob.day" ng-options="day for day in cart.days" ng-change="cart.updateDob(ticket)">
+                                <option value="" selected="">Day</option>
+                            </select>
+                            <!--<input type="text" name="inputBirthDate" ng-model="ticket.dob" ng-required>-->
                             <br>
                         </span>
                         <label class="control-label">{{translation.ticketdata}} :</label>

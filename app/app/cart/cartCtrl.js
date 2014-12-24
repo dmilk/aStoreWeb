@@ -22,9 +22,8 @@ function cartCtrl($location, CartService, SupportingDocumentService) {
     vm.otc = CartService.getTickets();
 
     var currentDate = new Date();
-    console.log(currentDate);
     var dob = {};
-    dob.year = currentDate.getFullYear() - 18;
+    dob.year = currentDate.getFullYear();
     dob.month = currentDate.getMonth() + 1;
     vm.dob = dob;
 
@@ -36,19 +35,28 @@ function cartCtrl($location, CartService, SupportingDocumentService) {
     for (var i = 1; i < 13; i++) {
         months.push(i);
     }
-    var days = new Array();
-    for (var i = 1; i <= daysInMonth(dob.month, dob.year); i++) {
-        days.push(i);
-    }
     vm.years = years;
     vm.months = months;
-    vm.days = days;
-
-    updateScope();
+    updateDob();
 
     function daysInMonth(month, year) {
         return new Date(year, month, 0).getDate();
     }
+
+    function updateDob(ticket) {
+        var days = new Array();
+        for (var i = 1; i <= daysInMonth(dob.month, dob.year); i++) {
+            days.push(i);
+        }
+        vm.days = days;
+        if (ticket) {
+            ticket.dob = dob.year + '.' + dob.month + '.' + dob.day;
+        }
+    };
+    
+    vm.updateDob = updateDob;
+
+    updateScope();
 
     function updateScope() {
         vm.content = CartService.getTickets();
@@ -58,11 +66,6 @@ function cartCtrl($location, CartService, SupportingDocumentService) {
             $location.path("#");
         }
     }
-
-    vm.updateDob = function () {
-        console.log("updateDob");
-
-    };
 
     vm.remove = function (ticket) {
         CartService.remove(ticket);
