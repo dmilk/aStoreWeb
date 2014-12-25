@@ -1,11 +1,31 @@
-Cart: {{ticket.Cart}}
+ <!--Test = {{route.test}}-->
 <br>
-<button ng-click="route.testClick()">testClick</button>
-<ul ng-repeat="currentRoute in route.allRoutes">
+<table>
+    <tr>
+        <td width=250 ng-repeat="currentRoute in route.allRoutes">
     <li ng-click="route.clickRoute(currentRoute)">
-        <a href="#/app/category">
-            <img ng-src="img/route/{{currentRoute.name}}.png"/>
+         <a href="#/app/category"><img src="img/route/{{currentRoute.name}}.png" title="Из порта Крым в порт Кавказ" alt="0" id="arrow1" class="arrow-krym"></a>
+       <a href="#/app/category" {{currentRoute.name}}>
             {{translation[currentRoute.name]}}
         </a> 
+        <br>
+        <a href="#/app/category">
+            <img ng-src="img/route/{{currentRoute.name}}.png"/>
+            
+        </a>
     </li>
-</ul>
+        </td>
+    </tr>
+<table>
+ 
+    
+<!--    <li ng-click="route.clickRoute(1)">
+        <a href="#/app/category"><img src="img/route/krym_kavkaz.png" title="Из порта Крым в порт Кавказ" alt="0" id="arrow1" class="arrow-krym"></a>
+    </li>    
+<a href="#/app/category"><img src="img/route/kavkaz_krym.png" title="Из порта Кавказ в порт Крым" alt="0" id="arrow2" class="arrow-kavkaz" ng-click="route.clickRoute(currentRoute)"></a>-->
+
+
+
+<div style="text-align: left;"><img
+ style="width: 653px; height: 408px;" alt="map"
+ src="img/route/map1.png">

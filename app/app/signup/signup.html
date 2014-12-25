@@ -1,9 +1,9 @@
-userInfo = {{signup.xxx }}
+<!--userInfo = {{signup.xxx }}
 user = {{ signup.user}}
-salt = {{ signup.salt}}
+salt = {{ signup.salt}}-->
 <br>
     <form name="signupForm" ng-submit="signup.submit(signup.user)">
-        test = {{my.test}}
+        <!--test = {{my.test}}-->
         <input type="email" name="inputEmail" placeholder="E-Mail" ng-model="signup.user.email" ng-required>
         <br>
         <input type="password" name="inputPassword" placeholder={{translation.password}} ng-model="signup.user.password" ng-required>
@@ -20,5 +20,5 @@ salt = {{ signup.salt}}
         <br>
         <button type="submit" class="btn btn-default pull-left" ng-disabled="signupForm.$invalid">{{translation.signup}}</button>
 <div class="span1 offset0"></div>
-<button type="button" class="btn btn-default pull-left" ng-click="signup.cancel()">{{translation.cancel}}</button>
+        <button type="button" class="btn btn-default pull-left" ng-click="signup.cancel()">{{translation.cancel}}</button>
     </form>

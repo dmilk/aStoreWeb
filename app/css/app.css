@@ -45,6 +45,9 @@ body {
 #header .language {
     padding-top: 6px;
 }
+#header .lan {
+    padding-top: 10px;
+}
 
 #header .form-control {
     padding-top: 0px;
@@ -65,4 +68,26 @@ button.disabled {
     cursor: default;
     text-decoration: none;
     padding-left: 100px;
+}
+
+/* ARROW1 ------------------------------------------------------------*/
+
+img#arrow1{
+    position: relative;
+    top: 255px;
+}
+
+img.arrow-krym{
+    left: 260px;
+}
+
+/* ARROW2 ------------------------------------------------------------*/
+
+img#arrow2{
+    position: relative;
+    top: 255px;
+}
+
+img.arrow-kavkaz{
+    left: 270px;
 }

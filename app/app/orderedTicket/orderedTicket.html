@@ -1,9 +1,11 @@
-<!--order = {{orderedTicket.order}}-->
+<!--order = {{orderedTicket.order}}
+ticket = {{ticket.ticket}}-->
 <br>
 <button class="btn btn-large" ng-click="orderedTicket.gotoBack()">{{translation.back}}</button>
 <table class="table table-striped">
     <thead>
         <tr>
+            <td>Номер брони</td>
             <td>Дата заказа</td>
             <td>{{translation.cost}}</td>
             <td>Контактное лицо</td>
@@ -13,6 +15,7 @@
     </thead>
     <tbody>
         <tr>
+            <td>{{orderedTicket.order.confirmationNumber}}</td>
             <td>{{orderedTicket.order.dateCreated| date : 'medium'}}</td>
             <td>{{orderedTicket.order.amount}}</td>
             <td>{{orderedTicket.order.firstName}} {{orderedTicket.order.lastName}}</td>
@@ -26,12 +29,13 @@
                         <tr>
                             <td>Категория</td>
                             <td>Тип</td>
-                            <td>Данные</td>
-<span ng-if="ticket.category.id===1">
+                            <!--<td>Данные</td>-->
+                            <span ng-if="ticket.category.id===1">
                               <td>{{translation.firstName}}</td>
                               <td>{{translation.lastName}}</td>
                               <td>{{translation.middleName}}</td>
                             </span>
+                            <td>{{translation.price}}</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,7 +48,7 @@
                               <td>{{ticket.lastName}}</td>
                               <td>{{ticket.middleName}}</td>
                             </span>  
-                            <!--<td>{{ticket.price}}</td>-->
+                            <td>{{ticket.ticket.price}}</td>
                         </tr>
                     </tbody>
                 </table>

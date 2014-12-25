@@ -2,7 +2,7 @@
 
 angular
         .module('aStore')
-        .factory('authFactory', function ($rootScope, $http, $window) {
+        .factory('authFactory', function ($rootScope, $http, $window, REST) {
 
             var authFactory = {
                 authData: undefined
@@ -26,7 +26,9 @@ angular
             };
 
             authFactory.login = function (user) {
-                return $http.post('http://localhost:8080/aStore/rest/user/login', user);
+//                return $http.post('http://localhost:8080/aStore/rest/user/login', user);
+                return $http.post(REST.fullUrl + '/user/login', user);
+
             };
 
             authFactory.logout = function () {

@@ -33,7 +33,7 @@ function mainCtrl($scope, LocationService, UserService, authFactory, Translation
                         tmhDynamicLocale.set($scope.selectedLanguage);
                     };
                     // Инициализация
-                    $scope.selectedLanguage = 'en';
+                    $scope.selectedLanguage = 'ru';
                     $scope.translate();
                 };
                 

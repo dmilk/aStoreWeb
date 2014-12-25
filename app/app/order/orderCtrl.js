@@ -28,4 +28,3 @@ function orderCtrl(OrderService, LocationService) {
     }
     
 };
-

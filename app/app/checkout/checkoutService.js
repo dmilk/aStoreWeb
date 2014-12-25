@@ -42,7 +42,7 @@ function checkoutService($resource, REST, CartService) {
             console.log('newPurchase ' + orderId);
             return orderId;
         }, function (errorData) {
-            console.log('Error purchase: ' + errorData);
+            console.log('Error purchase: ' + errorData + ' ' + orderId);
         }
         );
 

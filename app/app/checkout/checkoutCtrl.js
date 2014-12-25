@@ -20,7 +20,7 @@ function checkoutCtrl(CartService, CheckoutService, authFactory, LocationService
 
     // init scope:
     vm.subtotal = CartService.getTotal();
-    vm.surcharge = 10;
+    vm.surcharge = 0;
     vm.total = vm.surcharge + parseFloat(CartService.getTotal());
 
     vm.submitPurchase = function () {

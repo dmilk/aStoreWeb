@@ -17,8 +17,6 @@
         <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body ng-controller="mainCtrl">
-        UserInfo={{userInfo}}
-        <!--{{isAuthenticated}}-->
         <div id="header">
             <div class="navbar navbar-default navbar-fixed-top">
                 <div class="navbar-inner">
@@ -30,13 +28,13 @@
                                 <span ng-bind="translation.anrusstrans"></span>
                             </a>
                         </li>
-                        <li class="active">
+<!--                        <li class="active">
                             <a href="#">Buy</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="#">About</a></li>-->
                         <li ng-controller="cartStatusCtrl">
                             <a href="#/app/cart"><img src="img/cart.gif"/>
-                                <span ng-if="size > 0" ng-bind="size"></span> <span ng-bind="translation[content]"></span>
-
+                                <span ng-bind="translation[content]"></span><span ng-if="size > 0" ng-bind="size"></span> 
+                                <!--<span ng-if="size > 0">{{size}}</span> {{translation[content]}}-->
                             </a>
                         </li>
                     </ul>
@@ -59,7 +57,9 @@
                                 </li>
                             </ul>
                         </li>                        
-                        <li class="language"><span ng-bind="translation.lang">:</span>
+                       <li class="lan"><span ng-bind="translation.lang"></span></li>
+                        <li class="language"><span></span>
+                        <!--<li class="language">{{translation.lang}}:-->
                             <select class="form-control" ng-change="translate()" ng-model="selectedLanguage">
                                 <option value="en">English</option>
                                 <option value="ru">Русский</option>
@@ -78,12 +78,12 @@
 
         <div ng-view></div>
 
-        <div>
+<!--        <div>
             <hr>
             [ footer ]
             <br>
             <span>&copy;<a href="mailto:notreal@mail.ru">Notreal</a></span>
-        </div>
+        </div>-->
 
         <!-- In production use:
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

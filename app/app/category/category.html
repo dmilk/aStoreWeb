@@ -1,8 +1,32 @@
 <ul ng-repeat="currentCategory in category.allCategories">
     <li>
-        <a ng-href="#/app/ticket/{{currentCategory.id}}">
+        <a ng-href="#/app/ticket/{{currentCategory.id}}" ng-click="category.savePath()">
             <img ng-src="img/category/{{currentCategory.name}}.png"/>
             {{translation[currentCategory.name]}}
         </a> 
     </li>
 </ul>
+
+
+
+
+
+<!--<div class="row-fluid">
+
+    <div class="span7 offset1">
+  <div class="form-actions">
+<ul ng-repeat="currentCategory in category.allCategories">
+    <span>
+        <a ng-href="#/app/ticket/{{currentCategory.id}}">
+            <img ng-src="img/category/{{currentCategory.name}}.png"/>
+                  
+
+        <div class="btn-group">
+            <button class="btn btn-large btn-primary" type="button" aria-expanded="false">{{translation[currentCategory.name]}}</button>
+        </div>
+        </a>
+    </span>
+</ul>
+  </div>
+    </div>
+</div>-->

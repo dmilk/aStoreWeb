@@ -1,9 +1,13 @@
-Cart: {{ticket.Cart}}
+<!--Cart: {{ticket.Cart}}-->
+<br>
+<button class="btn btn-large" ng-click="ticket.gotoBack()">{{translation.back}}</button>
+<br>
 <br>
 {{translation.HELLO_TICKET}}
 <table class="table table-striped">
     <tr ng-repeat="currentTicket in ticket.allTickets">
         <td>
+            <!--{{currentTicket}}-->
             <img ng-src="img/ticket/{{currentTicket.name}}.png"/>
         </td>
         <td>

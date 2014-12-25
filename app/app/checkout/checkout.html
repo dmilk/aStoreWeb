@@ -1,24 +1,24 @@
-{{checkout.Cart}}
+<!--{{checkout.Cart}}-->
 <br>
-OrderId = {{checkout.orderId}}
+<!--OrderId = {{checkout.orderId}}-->
 <div class="row-fluid">
 
     <div class="span7 offset1" ng-hide="checkout.orderId">
     <h1>{{translation.checkout}}</h1>
-    {{ checkout.purchase}}
+    <!--{{ checkout.purchase}}-->
     <!--<div style="background-color: lightgray">-->
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <td>Subtotal</td>
-                    <td>Delivery</td>
-                     <td>{{translation.total}}</td>
+<!--                    <td>Subtotal</td>
+                    <td>Delivery</td>-->
+                    <td>{{translation.total}}</td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{checkout.subtotal}}</td>
-                    <td>{{checkout.surcharge}}</td>
+<!--                    <td>{{checkout.subtotal}}</td>
+                    <td>{{checkout.surcharge}}</td>-->
                     <td>{{checkout.total}}</td>
                 </tr>
             </tbody>
@@ -49,12 +49,12 @@ OrderId = {{checkout.orderId}}
         <div class="control-group">
             <label class="control-label" for="inputPhone">{{translation.phone}} :</label>
             <div class="controls">
-                <input type="text" name="inputPhone" placeholder="Phone" ng-model="checkout.purchase.phone" required>
+                <input type="text" name="inputPhone" placeholder={{translation.phone}} ng-model="checkout.purchase.phone" required>
             </div>
         </div>
         <div class="form-actions">
-            <button class="btn btn-large btn-primary" type="button" ng-disabled="checkoutForm.$invalid" ng-click="checkout.submitPurchase()">Submit Purchase</button>
-            <button class="btn btn-large" type="button" ng-click="checkout.cancelPurchase()">Cancel</button>            
+            <button class="btn btn-large btn-primary" type="button" ng-disabled="checkoutForm.$invalid" ng-click="checkout.submitPurchase()">{{translation.SubmitPurchase}}</button>
+            <button class="btn btn-large" type="button" ng-click="checkout.cancelPurchase()">{{translation.cancel}}</button>            
         </div>
     </form>
     </div>

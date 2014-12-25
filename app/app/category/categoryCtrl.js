@@ -13,7 +13,11 @@ function config($routeProvider) {
             });
 };
 
-function categoryCtrl(CategoryService) {
+function categoryCtrl(CategoryService, LocationService) {
     var vm = this;
     vm.allCategories = CategoryService.query();
+    
+    vm.savePath = function() {
+        LocationService.savePath();
+    }
 };

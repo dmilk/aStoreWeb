@@ -14,7 +14,7 @@ function config($routeProvider) {
 }
 ;
 
-function ticketCtrl($routeParams, TicketService, CartService) {
+function ticketCtrl($routeParams, TicketService, CartService, LocationService) {
     var vm = this;
     vm.Cart = CartService; // для отображения на экране
 //    vm.allTickets = TicketService.findByCategory({categoryId: $routeParams.categoryId});
@@ -23,5 +23,9 @@ function ticketCtrl($routeParams, TicketService, CartService) {
     vm.addToCart = function (ticket) {
         CartService.add(ticket);
     };
+    
+    vm.gotoBack = function() {
+        LocationService.gotoBack();
+    }
 }
 ;
