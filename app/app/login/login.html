@@ -1,4 +1,3 @@
-<br>
 <div class="span12 centered">
     <form name="loginForm" ng-submit="login.submit(user)" novalidate>
         <div class="controls">
@@ -12,4 +11,8 @@
         <button class="btn btn-default pull-left" ng-click="login.cancel()">{{translation.cancel}}</button>
     </form>
     <br>
+</div>
+
+<div id="errorMsg">
+    <span ng-bind="login.errorMsg.txt"></span>
 </div>

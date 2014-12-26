@@ -17,13 +17,20 @@ function config($routeProvider) {
 
 function loginCtrl(LocationService, LoginService) {
     var vm = this;
-    
-    vm.submit = function(user) {
-        LoginService.submit(user);
+    var errorMsg = {};
+    vm.errorMsg = errorMsg;
+
+    vm.submit = function (user) {
+//        errorMsg.txt = "msg init";
+//        console.log("1msg " + errorMsg.txt)
+        errorMsg.tlxt = undefined;
+        LoginService.submit(user, errorMsg);
+//        console.log("2msg " + errorMsg.txt)
     };
-    
+
     vm.cancel = function () {
         LocationService.gotoBack();
     };
 }
 ;
+

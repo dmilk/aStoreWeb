@@ -91,3 +91,7 @@ img#arrow2{
 img.arrow-kavkaz{
     left: 270px;
 }
+
+#errorMsg {
+    color: #d14;
+}
