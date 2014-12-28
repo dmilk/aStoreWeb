@@ -19,13 +19,12 @@ function cartCtrl($location, CartService, SupportingDocumentService) {
 
     vm.Cart = CartService;
     vm.allSupportingDocuments = SupportingDocumentService.query();
-    vm.otc = CartService.getTickets();
 
     var currentDate = new Date();
-    var dob = {};
-    dob.year = currentDate.getFullYear();
-    dob.month = currentDate.getMonth() + 1;
-    vm.dob = dob;
+    //var dob = {};
+    //dob.year = currentDate.getFullYear();
+    //dob.month = currentDate.getMonth() + 1;
+    //vm.dob = dob;
 
     var years = new Array();
     for (var i = currentDate.getFullYear() - 100; i <= currentDate.getFullYear(); i++) {
@@ -37,26 +36,30 @@ function cartCtrl($location, CartService, SupportingDocumentService) {
     }
     vm.years = years;
     vm.months = months;
-    updateDob();
+    vm.updateDob = updateDob;
 
     function daysInMonth(month, year) {
         return new Date(year, month, 0).getDate();
     }
 
     function updateDob(ticket) {
-        var days = new Array();
-        for (var i = 1; i <= daysInMonth(dob.month, dob.year); i++) {
-            days.push(i);
-        }
-        vm.days = days;
+        console.log("updateDob " + ticket);
         if (ticket) {
-            ticket.dob = dob.year + '.' + dob.month + '.' + dob.day;
+            var days = new Array();
+            for (var i = 1; i <= daysInMonth(ticket.dob.month, ticket.dob.year); i++) {
+                days.push(i);
+            }
+            ticket.days = days;
+            if (ticket) {
+                ticket.dobString = ticket.dob.year + '.' + ticket.dob.month + '.' + ticket.dob.day;
+            }
         }
-    };
-    
-    vm.updateDob = updateDob;
+    }
+    ;
+
 
     updateScope();
+    updateDob();
 
     function updateScope() {
         vm.content = CartService.getTickets();

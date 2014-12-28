@@ -8,6 +8,11 @@ angular
                 this.items = [];
                 this.listeners = [];
                 this.add = function (ticket) {
+                  var dob = {};
+                  dob.year = 1999;
+                  dob.month = 1;
+                  dob.day = 1;
+                  ticket.dob = dob;
                     ticket.number = this.size();
                     this.items.push(angular.copy(ticket));
                     this.fireChanges();

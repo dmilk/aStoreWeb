@@ -41,13 +41,13 @@ Cart: {{cart.cart.items[0]}}-->
                             <br>
                             <label class="control-label" for="inputBirthDate">{{translation.BirthDate}} :</label>
 
-                            <select ng-model="cart.dob.year" ng-options="year for year in cart.years" ng-change="cart.updateDob(ticket)">       
+                            <select ng-model="ticket.dob.year" ng-options="year for year in cart.years" ng-change="cart.updateDob(ticket)">       
                                 <option value="" selected="">Year</option>
                             </select>
-                            <select ng-model="cart.dob.month" ng-options="month | currency for month in cart.months" ng-change="cart.updateDob(ticket)">
+                            <select ng-model="ticket.dob.month" ng-options="month | currency for month in cart.months" ng-change="cart.updateDob(ticket)">
                                 <option value="" selected="">Month</option>
                             </select>
-                            <select ng-model="cart.dob.day" ng-options="day for day in cart.days" ng-change="cart.updateDob(ticket)">
+                            <select ng-model="ticket.dob.day" ng-options="day for day in ticket.days" ng-change="cart.updateDob(ticket)">
                                 <option value="" selected="">Day</option>
                             </select>
                             <!--<input type="text" name="inputBirthDate" ng-model="ticket.dob" ng-required>-->
