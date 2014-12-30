@@ -1,4 +1,4 @@
-Cart: {{cart.Cart}}
+<!--Cart: {{cart.Cart}}-->
 <!--Cart: {{cart.cart}}
 Cart: {{cart.cart.items[0]}}-->
 <br>
@@ -44,7 +44,7 @@ Cart: {{cart.cart.items[0]}}-->
                             <select ng-model="ticket.dob.year" ng-options="year for year in cart.years" ng-change="cart.updateDob(ticket)">       
                                 <option value="" selected="">Year</option>
                             </select>
-                            <select ng-model="ticket.dob.month" ng-options="month | currency for month in cart.months" ng-change="cart.updateDob(ticket)">
+                            <select ng-model="ticket.dob.month" ng-options="month for month in cart.months" ng-change="cart.updateDob(ticket)">
                                 <option value="" selected="">Month</option>
                             </select>
                             <select ng-model="ticket.dob.day" ng-options="day for day in ticket.days" ng-change="cart.updateDob(ticket)">

@@ -70,26 +70,16 @@ button.disabled {
     padding-left: 100px;
 }
 
-/* ARROW1 ------------------------------------------------------------*/
-
-img#arrow1{
-    position: relative;
-    top: 255px;
-}
-
 img.arrow-krym{
-    left: 260px;
-}
-
-/* ARROW2 ------------------------------------------------------------*/
-
-img#arrow2{
+    left: 175px;
     position: relative;
-    top: 255px;
+    top: 305px;
 }
 
 img.arrow-kavkaz{
-    left: 270px;
+    left: 345px;
+    position: relative;
+    top: 305px;
 }
 
 #errorMsg {

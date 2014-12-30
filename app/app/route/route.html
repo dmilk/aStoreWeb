@@ -1,10 +1,10 @@
  <!--Test = {{route.test}}-->
 <br>
-<table>
+<!--<table>
     <tr>
         <td width=250 ng-repeat="currentRoute in route.allRoutes">
-    <li ng-click="route.clickRoute(currentRoute)">
-         <a href="#/app/category"><img src="img/route/{{currentRoute.name}}.png" title="Из порта Крым в порт Кавказ" alt="0" id="arrow1" class="arrow-krym"></a>
+    <span ng-click="route.clickRoute(currentRoute)">
+         <a href="#/app/category"><img src="img/route/{{currentRoute.name}}.png" title={{translate.currentRoute.name}} alt="0" id="arrow1" class="arrow-krym"></a>
        <a href="#/app/category" {{currentRoute.name}}>
             {{translation[currentRoute.name]}}
         </a> 
@@ -13,16 +13,15 @@
             <img ng-src="img/route/{{currentRoute.name}}.png"/>
             
         </a>
-    </li>
+    </span>
         </td>
     </tr>
-<table>
+<table>-->
  
     
-<!--    <li ng-click="route.clickRoute(1)">
-        <a href="#/app/category"><img src="img/route/krym_kavkaz.png" title="Из порта Крым в порт Кавказ" alt="0" id="arrow1" class="arrow-krym"></a>
-    </li>    
-<a href="#/app/category"><img src="img/route/kavkaz_krym.png" title="Из порта Кавказ в порт Крым" alt="0" id="arrow2" class="arrow-kavkaz" ng-click="route.clickRoute(currentRoute)"></a>-->
+        <a href="#/app/category" ng-click="route.clickRouteId(2)"><img src="img/route/krym_kavkaz.png" alt={{translation.krym_kavkaz}} class="arrow-krym"></a>
+    
+<a href="#/app/category" ng-click="route.clickRouteId(1)"><img src="img/route/kavkaz_krym.png" alt={{translation.kavkaz_krym}} class="arrow-kavkaz"></a>
 
 
 
